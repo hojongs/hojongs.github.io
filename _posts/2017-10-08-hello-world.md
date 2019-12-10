@@ -1,13 +1,11 @@
 ---
 layout: post
-title: You're up and running!
+title: 기술 블로그 시작
 tags:
-  - test
-  - tags
 ---
 
-Next you can update your site name, avatar and other options using the _config.yml file in the root of your repository (shown below).
+글 작성 테스트를 위한 포스트입니다.
 
-![_config.yml]({{ site.baseurl }}/images/config.png)
+Github Web에서 작성은 불편해서, Local IDE에서 작성해야겠습니다.
 
-The easiest way to make your first post is to edit this one. Go into /_posts/ and update the Hello World markdown file. For more instructions head over to the [Kiko Now repository](https://github.com/aweekj/kiko-now) on GitHub.
+줄바꿈을 하려면, 줄 사이에 여백 라인이 필요합니다.

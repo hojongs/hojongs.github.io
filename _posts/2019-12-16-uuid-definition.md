@@ -1,11 +1,9 @@
 ---
 layout: post
 title: UUID 정의
-tags: [Database]
+tags: [Database, Standard]
 comments: true
 ---
-
-# Summary
 
 * UUID는 Universally unique identifier의 약자로서, 정보 식별을 위하여 사용되는 식별자이다
 * 128-bit 숫자로 이루어져 있으며, xxxxxxxx-xxxx-Mxxx-Nxxx-xxxxxxxxxxxx 형식으로 표현한다
@@ -13,7 +11,7 @@ comments: true
 
 ---
 
-# Motivation
+# Motivation of the posting
 
 ## Database Primary Key and ID column
 

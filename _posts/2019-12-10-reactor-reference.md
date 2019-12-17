@@ -7,6 +7,10 @@ tags: [Reactor, Reactive, Functional, 함수형,
 comments: true
 ---
 
+* Spring Webflux에 내장되어 있는 Reactor를 사용하기 위해 Reactor Reference를 읽으면서 공부하게 되었다 
+* Reactor는 Rx와 같은 Reactive 패러다임의 구현체이며, Reactive Streams sepc의 구현도 포함하고 있다
+* Reactor reference를 읽으면서 나름 번역하여 본 글을 작성해보았다
+
 # 1. About the Documentation
 
 * `생략`
@@ -19,6 +23,8 @@ comments: true
 * Java 8 함수형 API와 잘 결합한다
 * composable 비동기 sequence API - Flux, Mono를 제공한다
 * Reactive Streams 명세(spec)을 널리 구현하였다
+
+<br>
 
 * Non-blocking IPC 지원 (reactor-netty project)
 * Microservice 아키텍처에 적합한 Reactor Netty는 Backpressure-ready 네트워크 엔진을 제공함
@@ -38,6 +44,7 @@ comments: true
 |Backpressure-ready network engine|Reactor Netty를 사용해보지 않아서 모르겠음|
 
 ## 2.2 Prerequisites
+
 * Java 8 이상 필요
 * It has a transitive dependency on org.reactivestreams:reactive-streams:1.0.3.
   
@@ -50,12 +57,14 @@ comments: true
 >  We are open to evaluating changes that benefit Android support in a best-effort fashion. However, we cannot make guarantees. Each decision must be made on a case-by-case basis.
 
 ## 2.3 Understanding the BOM
+
 * BOM : Bill of Materials
 * 이 curated (BOM) 리스트는 아티팩트들을 그룹화함
   * 이러한 아티팩트들의 versioning scheme이 잠재적으로 분기하더라도, 함께 사용하기 위하여
 * BOM은 스스로 versing됨
   * codename과 제한자(qualifier)를 통해 release train scheme 사용
 * 예시
+
 ```
 Aluminium-RELEASE
 Californium-BUILD-SNAPSHOT
@@ -63,18 +72,19 @@ Aluminium-SR1
 Bismuth-RELEASE
 Californium-SR32
 ```
+
 * <codename>-<qualifier> 형식
-The codenames represent what would traditionally be the MAJOR.MINOR number. They (mostly) come from the Periodic Table of Elements, in increasing alphabetical order.
+* The codenames represent what would traditionally be the MAJOR.MINOR number. They (mostly) come from the Periodic Table of Elements, in increasing alphabetical order.
 
-The qualifiers are (in chronological order):
+<br>
 
-BUILD-SNAPSHOT: Builds for development and testing.
+* The qualifiers are (in chronological order):
+  * BUILD-SNAPSHOT: Builds for development and testing.
+  * M1..N: Milestones or developer previews.
+  * RELEASE: The first GA (General Availability) release in a codename series.
+  * SR1..N: The subsequent GA releases in a codename series — equivalent to a PATCH number. (SR stands for “Service Release”).
 
-M1..N: Milestones or developer previews.
-
-RELEASE: The first GA (General Availability) release in a codename series.
-
-SR1..N: The subsequent GA releases in a codename series — equivalent to a PATCH number. (SR stands for “Service Release”).
+<br>
 
 * 글을 작성하고있는 현재, Reactor Core version는 `3.3.1.RELEASE`, Release Train은 `Dysprosium-SR2`이다.
 * Reactor Netty 또한 version은 `0.9.2.RELEASE`임에도 불구하고 Release Train은 `Dysprosium-SR2`임을 확인할 수 있다.
@@ -89,7 +99,7 @@ SR1..N: The subsequent GA releases in a codename series — equivalent to a 
 
 ### 2.4.1 Maven Installation
 
-`생략'
+`생략`
 
 ### 2.4.2 Gradle Installation
 
@@ -109,18 +119,23 @@ SR1..N: The subsequent GA releases in a codename series — equivalent to a 
 # 3. Introduction to Reactive Programming
 
 * Reactor = Reactive programming paradigm의 구현체
-> Reactive Programming = 데이터 스트림과 변화 전화를 고려한, 비동기 프로그래밍 패러다임
-> 따라서 정적 데이터나 동적 데이터 스트림을 쉽게 표현할 수 있다
-> (정적 데이터 = arrays, 동적 데이터 = event emitters)
+
+> Reactive Programming = 데이터 스트림과 변화 전화를 고려한, 비동기 프로그래밍 패러다임 <br>
+> 따라서 정적 데이터나 동적 데이터 스트림을 쉽게 표현할 수 있다 <br>
+> (정적 데이터 = arrays, 동적 데이터 = event emitters) <br>
 
 * Microsoft의 .NET Rx 라이브러리가 Reactive Programming의 최초 구현체이다
 * 이후 RxJava가 나왔고, Reactive Streams를 통해 Java Standard가 등장했다
   * Java 표준 명세는, reactive library의 인터페이스와 상호작용 규칙을 명세했다
 * 이 인터페이스는 Java 9 Flow class로 integrate 되었다
 
+<br>
+
 * Reactive 프로그래밍 패러다임은 OOP의 옵저버 디자인 패턴의 확장으로 자주 표현된다
 * 이러한 라이브러리(?) 모두에 Iterable-Iterator pair에 대한 이중성(duality)이 있다
 * 그러므로 주요한 reactive streams pattern을 Iterator design pattern과 비교해볼 수 있다
+
+<br>
 
 * "값에 접근하는 방법(method)이 Iterable 단독의 책임임에도 불구하고 Iterator를 사용하는 것"은 명령형 프로그래밍 패턴이다
 * 사실, 언제 sequence의 next() item에 접근할 것인지는 개발자의 선택이다
@@ -130,10 +145,14 @@ SR1..N: The subsequent GA releases in a codename series — equivalent to a 
 * 또한, push된 값에 적용된 연산(operation)은 (명령적이기보다는) 선언적으로 표현된다
 * 프로그래머는 (정확한 control flow보다는) 연산 로직을 표현한다
 
+<br>
+
 * push되는 값에 추가로, error 핸들링과 completion 측면 또한 잘 정의된 방식(manner)으로 다루어집니다(cover)
 * Publisher는 새로운 값을 Subscriber에게 push할 수 있지만 (Subscriber의 onNext 호출을 통해)
 * error 또는 completion 시그널 또한 보낼 수 있다 (onError, onComplete)
 * 이 둘은 sequence를 끝낸다(terminate)
+
+<br>
 
 * 이러한 접근방식(`onNext x 0..N [onError | onComplete]`)은 아주 유연하다(flexible)
 * 이 패턴은 값이 없거나, 하나이거나, n개인 경우를 모두 지원한다 (continuing ticks of a clock과 같은 무한 sequence도 포함)
@@ -152,18 +171,26 @@ SR1..N: The subsequent GA releases in a codename series — equivalent to a 
 * 현대 응용들은 거대한 양의 동시 사용자를 가질 수 있고, 
 * 현대 하드웨어의 용량은 계속해서 향상되고 있음에도 불구하고 현대 소프트웨어의 성능은 여전히 핵심 관심사이다
 
+<br>
+
 * 프로그램 성능 향상에 대략 두 가지 방법이 있다
   * 병렬화, 더 많은 스레드와 더 많은 하드웨어 자원을 사용한다
   * 효율성 추구, 현재 자원을 유지하면서.
+
+<br>
 
 * 보통, 자바 개발자들은 블로킹 코드로 프로그램을 작성한다
 * 이 방법은 성능 병목 지점이 있을 때까지는 괜찮다
 * 그리고 비슷한 블로킹 코드를 실행하는 스레드 수를 늘린다.
 * 하지만 이러한 자원 활용(utilization)의 scaling은 금방 경쟁(contention)과 동시성(concurrency) 문제를 발생시킨다
 
+<br>
+
 * 더 나쁜 것은, 블로킹이 자원을 낭비한다는 점이다.
 * 프로그램이 약간의 latency(특히 DB 요청, 네트워크 호출 등의 I/O로 인한 latency)를 가지는 즉시,
 * thread들은 idle 상태가 되어 데이터를 기다리고 있으므로 자원은 낭비된다
+
+<br>
 
 * 그래서, 병렬화 접근방법은 해결방법이 아니었다.
 * 하드웨어의 full power를 사용해야 하지만, (하드웨어를 더 효율적으로 활용해야 하지만)
@@ -174,6 +201,8 @@ SR1..N: The subsequent GA releases in a codename series — equivalent to a 
 * 두번째 접근방법 효율성 추구는 리소스 낭비 문제의 해결방법이 될 수 있다
 * 비동기 Non-blocking 코드를 통해 execution을, 같은 자원을 사용하는 다른 active task로 switch한 후
 * 비동기 프로세스가 끝나면 현재 프로세스로 돌아오도록 할 수 있다
+
+<br>
 
 * 자바는 비동기 프로그래밍의 2가지 모델을 제공한다
   * Callback : 
@@ -212,14 +241,20 @@ SR1..N: The subsequent GA releases in a codename series — equivalent to a 
 * 가장 간단한 프로그래밍 방식 Flux 생성은 generate method를 통한 것이다
 * 이것은 generator function을 인자로 받는다
 
+<br>
+
 * 이것은 동기 방식의 1:1 방출(emission)을 위한 방식이다.
 * 이것이 의미하는 바는, sink는 동기식 Sink이며 콜백에서 sink.next()는 최대 한 번만 호출해야 한다
 * error()와 complete()는 옵션이다
+
+<br>
 
 * 가장 유용한 sink는 아마 당신이 state(상태)를 가지도록 하는 sink이다
 * 당신은 이 state를 다음에 무엇을 emit할 지 결정하기 위해 sink 사용 시에 참조할 수 있다
 * generator 함수는 `BiFunction<S, SynchronousSink<T>, S>`이 되며, `<S>`는 state 객체의 자료형이다
 * 당신은 `Supplier<S>`를 초기 state를 위해 제공할 수 있고, 당신의 generator 함수는 각 순회마다 새로운 state를 리턴한다
+
+<br>
 
 * 예를 들어, 당신은 int형을 state로 사용할 수 있다
 * Example 11. Example of state-based generate
@@ -239,6 +274,7 @@ Flux<String> flux = Flux.generate(
 * We also use it to choose when to stop.
 * We return a new state that we use in the next invocation (unless the sequence terminated in this one).
 
+<br>
 
 * 앞의 코드는 구구단 3단을 생성한다, 그 결과는 아래에.
 > 3 x 0 = 0 <br>
@@ -273,6 +309,8 @@ Flux<String> flux = Flux.generate(
 * We mutate the state here.
 * We return the same instance as the new state.
 
+<br>
+
 * "DB 연결이나 프로세스 마지막에 처리되어야 하는 다른 리소스"를 포함하는 상태의 경우, 
 * consumer(소비자) lambda는 커넥션을 닫거나 프로세스 마지막에 처리되어야 하는 임의의 task를 처리할 수 있다
 
@@ -282,9 +320,13 @@ Flux<String> flux = Flux.generate(
 * 이것은 순회마다 여러 번의 emission에 적절하다.
 * 심지어 멀티 스레드로부터 오는 emission도 가능하다
 
+<br>
+
 * 이것은 next, error, complete 메소드를 가진 FluxSink를 공개(expose)한다
 * generate와는 달리, 이것은 상태 기반 sink가 없다
 * 반면에, create는 멀티 스레드 이벤트를 콜백으로 trigger할 수 있다
+
+<br>
 
 * create는 이미 존재하는 API를 reactive world와 연결하는 데에 유용하다 - 예를 들면 listener 기반 비동기 API
 * create가 비동기 API와 함께 사용될 수 있긴 하지만, 당신의 코드를 병렬화하거나 비동기로 만들어주지 않는다
@@ -295,6 +337,8 @@ Flux<String> flux = Flux.generate(
 * subscribeOn(Scheduler, false)를 사용하라:
   * requestOnSeparateThread = false 는 스케줄러 스레드로 create를 수행하고, 
   * (여전히) 원래 스레드에서 요청을 수행함으로써 데이터를 흐르게 한다
+
+<br>
 
 * 당신이 linster 기반 API를 사용한다고 상상해보라. 이것은 데이터를 chunk로 처리하고 두 가지 이벤트를 가진다:
   * (1) 데이터의 청크가 준비되었다는 이벤트
@@ -308,7 +352,7 @@ interface MyEventListener<T> {
 }
 ```
 
-당신은 이것을 Flux와 연결하는 데에 create를 사용할 수 있다
+* 당신은 이것을 Flux와 연결하는 데에 create를 사용할 수 있다
 
 ```java
 Flux<String> bridge = Flux.create(sink -> {
@@ -333,6 +377,8 @@ Flux<String> bridge = Flux.create(sink -> {
 * The processComplete event is translated to onComplete.
 * All of this is done asynchronously whenever the myEventProcessor executes
 
+<br>
+
 * 추가적으로, create는 비동기 API와 연결하고 backpressure를 관리할 수 있기 때문에, 
 * 당신은 OverflowStrategy를 포함함으로써, backpressure-방식의 동작방식은 정제할 수 있다
   * IGNORE : 완전히 downstream의 backpressure 요청을 무시한다. downstream을 향한 큐가 가득찼을 때, 이것은 IllegalStateException 를 발생시킨다
@@ -340,6 +386,8 @@ Flux<String> bridge = Flux.create(sink -> {
   * DROP : 다운스트림이 받을 준비가 안 되었으면 그 시그널을 드랍시킴
   * LATEST : 다운스트림이 업스트림으로부터 오직 최근의 시그널만을 받도록 함
   * BUFFER (default) : 다운스트림이 받을 수 없을 경우 모든 시그널을 버퍼에 저장 (이것은 무한 버퍼링을 수행하고, OutOfMemoryError를 유발할 수 있음)
+
+<br>
 
 * Mono 또한 create generator를 가진다.
 * Mono의 MonoSink는 한 번의 emission 후, 나머지 signal은 모두 drop한다
@@ -378,17 +426,22 @@ Flux<String> bridge = Flux.push(sink -> {
 4. error 이벤트도 같은 리스너 스레드로부터 생성된다
 
 * 궁금증 : Flux.push에 multi-thread를 사용하면 어떻게 될까?
-> 테스트 결과, 일부 next signal들이 소실되었고, thread 수가 많아질수록 소실량이 더 커졌다. race condition에 의한 소실로 추측된다.
-> 예를 들어, 1..100의 이벤트가 발생해도 onNext에 도착한 시그널은 2, 3, 4, 5, 7, ...과 같이 사이사이 시그널들이 소실되었다
-> multi-thread로 실행한다고 exception이 발생하거나 하지는 않았다.
+
+> 테스트 결과, 일부 next signal들이 소실되었고, thread 수가 많아질수록 소실량이 더 커졌다. race condition에 의한 소실로 추측된다. <br>
+> 예를 들어, 1..100의 이벤트가 발생해도 onNext에 도착한 시그널은 2, 3, 4, 5, 7, ...과 같이 사이사이 시그널들이 소실되었다 <br>
+> multi-thread로 실행한다고 exception이 발생하거나 하지는 않았다. <br>
 
 * 하이브리드 push/pull 모델
 * 대부분의 리액터 오퍼레이터들은(create같은) 하이브리드 push/pull 모델을 따른다
 * 이것이 의미하는 바는, 대부분의 프로세싱이 비동기지만 (push 접근방식을 제안하지만), 작은 pull 컴포넌트가 있다는 것이다: the request
 
-* consumer 입장에서는, 처음 request되기 전까지 아무것도 emit하지 않는다는 의미에서, 데이터를 source로부터 pull한다.
-> Iterator의 next()를 호출하여 pull하는 것과는 다름을 이야기하는 듯 하다
+<br>
+
+* consumer 입장에서는, 처음 request되기 전까지 아무것도 emit하지 않는다는 의미로 데이터를 source로부터 pull한다.
+> Iterator의 next()를 호출하여 pull하는 것과는 다르다는 의미인 듯 하다 <br>
 * source 입장에서는 가능해지는대로 consumer에게 데이터를 push한다. 하지만 오직 요청된 양만큼만 보낸다.
+
+<br>
 
 * push()와 create() 둘다 onRequest 컨슈머를 허용한다.
 * request 양을 관리하고 pending된 request가 존재할 때만 sink를 통해 데이터가 push되도록 하기 위함이다.
@@ -436,7 +489,10 @@ Flux<String> bridge = Flux.create(sink -> {
 
 ## 4.6. Handling Errors
 
-`TODO`
+* 리액티브 스트림즈에서, 에러는 종료(terminal) 이벤트다. 에러는 발생하자마자 시퀀스를 멈추고, 오퍼레이터 체인 아래 쪽으로 전파되어 마지막 단계까지 간다
+* 마지막 단계는 (당신이 정의한) subscriber의 onError method이다
+
+* ㅂㅈ
 
 ## 4.7. Processors
 
@@ -461,6 +517,8 @@ Flux<String> bridge = Flux.create(sink -> {
   * 모든 operator call에서 stacktrace를 찍어낼(capture) 할 필요가 없다
 * 이러한 동작은 traceback과 ㅂ슷하지만, 런타임 성능 오버헤드가 없다
 
+<br>
+
 * 사용을 위하여, 의존성 추가가 필요하다 (reactor-tools)
 * 코드도 한 줄 필요하다
 
@@ -468,10 +526,12 @@ Flux<String> bridge = Flux.create(sink -> {
 
 * 클래스들이 로딩될 때 계측하므로, main 메서드의 가장 앞에 높자
 * 초기화를 eagerly 실행할 수 없다면 존재하는 클래스들을 re-process 할 수도 있다
+
 ```
 ReactorDebugAgent.init();
 ReactorDebugAgent.processExistingClasses();
 ```
+
 * re-processing은 시간이 좀 걸린다. 로딩된 모든 클래스들을 순회하고 transform 해야하기 때문에.
 * 오직 일부 호출구역(call-sites)이 계측되지 않는 경우에만 사용하자.
 

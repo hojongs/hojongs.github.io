@@ -492,11 +492,88 @@ Flux<String> bridge = Flux.create(sink -> {
 * 리액티브 스트림즈에서, 에러는 종료(terminal) 이벤트다. 에러는 발생하자마자 시퀀스를 멈추고, 오퍼레이터 체인 아래 쪽으로 전파되어 마지막 단계까지 간다
 * 마지막 단계는 (당신이 정의한) subscriber의 onError method이다
 
-* ㅂㅈ
+<br>
+
+* 이러한 에러들은 (여전히) 응용 레벨에서 처리되어야 한다.
+  * 예를 들어, 에러 알림을 UI에 display하거나, REST endpoint에서 의미있는 에러 payload를 보내는 것이다
+* 이러한 이유로, subscriber의 onError 메소드는 항상 정의되어야 한다
+
+> 정의되지 않으면, onError는 UnsupportedOperationException을 throw한다. <br>
+> 게다가 당신은 Exceptions.isErrorCallbackNotImplemented 메소드를 사용해 이것을 탐지하고 심사할 수 있다 <br>
+
+* Reactor는 에러 핸들링 오퍼레이터로 체인의 중간에서 에러를 처리하는 방법의 대안 또한 제공한다
+* 다음 예제는 어떻게 그렇게 하는지를 보인다
+
+```java
+Flux.just(1, 2, 0)
+    .map(i -> "100 / " + i + " = " + (100 / i)) //this triggers an error with 0
+    .onErrorReturn("Divided by zero :("); // error handling example
+```
+
+> 당신이 에러 핸들링 오퍼레이터를 배우기 전에, 리액티브 시퀀스에서 모든 에러는 종료 이벤트라는 것을 명심해야 한다 <br>
+> 심지어 에러 핸들링 오퍼레이터가 사용되어도, 이것은 원래 시퀀스를 계속되게 하지 않는다 <br>
+> 오히려, 이것은 onError 시그널을 새로운 시퀀스 (fallback)의 시작으로 변환한다 <br>
+> 다른 말로, 이것은 종료된 시퀀스 업스트림을 대체한다 <br>
+
+* 지금 우리는 에러 핸들링 방법을 하나하나 본다. 관련이 있는 경우, 우리는 try 패턴과 병렬적으로 만든다
+
+### 4.6.1. Error Handling Operators
+
+* 당신은 try-catch 블록으로 예외들을 처리하는 방법들과 더 친숙할 것이다
+* 가장 명백하게, 그것들은 이런 것들을 포함합니다
+  * catch하고 static default value를 리턴한다
+  * catch하고 fallback 메소드로 대안 경로를 실행한다
+  * catch하고 동적으로 fallback value를 연산한다
+  * catch하고 BusinessException으로 wrap하여 re-throw한다
+  * catch, log, and re-throw
+  * finally 블록을 사용하여 리소스를 clean up한다 또는 Java 7 try-with-resource 생성자를 사용한다
+
+<br>
+
+* 리액터에는 이 모든 것들의 대응되는 것들이 에러 핸들링 오퍼레이터 형식으로 존재한다.
+* 이 오퍼레이터들을 보기 전에, 우리는 먼저 리액티브 체인과 try-catch 블록 사이를 병렬적으로 비교해보려 한다
+
+```java
+Flux<String> s = Flux.range(1, 10)
+    .map(v -> doSomethingDangerous(v)) 
+    .map(v -> doSecondTransform(v)); 
+s.subscribe(value -> System.out.println("RECEIVED " + value), 
+            error -> System.err.println("CAUGHT " + error) 
+);
+```
+
+* A transformation that can throw an exception is performed.
+* If everything went well, a second transformation is performed.
+* Each successfully transformed value is printed out.
+* In case of an error, the sequence terminates and an error message is displayed.
+
+<br>
+
+* 앞의 예제는 개념적으로 다음 try-catch 블록과 같다
+
+```java
+try {
+    for (int i = 1; i < 11; i++) {
+        String v1 = doSomethingDangerous(i); 
+        String v2 = doSecondTransform(v1); 
+        System.out.println("RECEIVED " + v2);
+    }
+} catch (Throwable t) {
+    System.err.println("CAUGHT " + t); 
+}
+```
+
+* If an exception is thrown here…​
+* …​the rest of the loop is skipped…​
+* …​ and the execution goes straight to here.
+
+* 병렬적인 비교를 해봤으므로, 다양한 에러 핸들링 경우들과 대응되는 오퍼레이터들을 확인해볼 수 있다
+
+
 
 ## 4.7. Processors
 
-`TODO`
+`생략`
 
 ## 5. Kotlin support
 

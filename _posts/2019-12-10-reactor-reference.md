@@ -1,9 +1,9 @@
 ---
 layout: post
 title: Reactor Reference Reading
-tags: [Reactor, Reactive, Functional, 함수형, 
-  Non-blocking, Java, Kotlin, Declarative, 선언형, 
-  Async, 비동기]
+tags: [Reactor, Reactive, Functional_함수형, 
+  Non-blocking, Java, Kotlin, Declarative_선언형, 
+  Async_비동기]
 comments: true
 ---
 

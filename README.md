@@ -1,5 +1,5 @@
 # hojongs.github.io
 Hojong's a Knowledge Archive
 
-# Run Locally
+## Run Locally
 `jekyll serve`

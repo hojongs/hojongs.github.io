@@ -13,6 +13,15 @@ comments: true
 
 # Motivation of the posting
 
+## Personal Motivaton
+
+- 지금 다니고있는 회사의 DB Schema를 보았더니, Table의 ID Column의 데이터 타입이 UUID였다
+- Integer와 비교했을 때 UUID를 선택한 이유가 무엇인지 궁금했다
+- 심지어 UUID 자체를 처음 접했기 때문에, UUID의 정의 및 개념을 공부하는 것이 먼저였다
+- 그리하여, 다음에 대해 알아보고자 공부하게 되었다
+  - UUID가 무엇인지
+  - DB에서 Primary Key로 UUID를 사용하면 어떤 이점이 있는지 
+
 ## Database Primary Key and ID column
 
 - Database에 데이터를 저장할 때, 데이터 식별을 위해 Primary Key를 사용하고 있다
@@ -78,3 +87,12 @@ comments: true
 |node|6|12|the 48-bit node id|
 
 > 이후 내용은 읽지 못했으므로 여기서 마침
+
+## Conclusion
+
+- UUID는 128-bit로 이루어진, "실용적인 측면에서 충분히 고유한" universal 식별자이다
+- UUID를 사용했을 때의 이점들 중 몇 가지를 뽑자면 다음과 같다
+  - UUID의 고유성은 중앙 등록 기관(예를 들면 데이터베이스 서버) 등에 의존되지 않고, standard method를 통해 독립적으로 생성 가능
+  - 별도로 분리되어 있던 데이터들을 통합하거나, 하나의 채널에서 전송하더라도 충돌이 발생하지 않는다
+  - UUID는 널리 채택되어 있고 많은 컴퓨팅 플랫폼들에서 UUID 생성, 파싱을 지원하고 있음
+    - 예를 들면 Exposed의 UUIDTable class이 될 것 같다

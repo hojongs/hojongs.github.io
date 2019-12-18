@@ -8,8 +8,8 @@ comments: true
 ---
 
 * Spring Webflux에 내장되어 있는 Reactor를 사용하기 위해 Reactor Reference를 읽으면서 공부하게 되었다 
-* Reactor는 Rx와 같은 Reactive 패러다임의 구현체이며, Reactive Streams sepc의 구현도 포함하고 있다
-* Reactor reference를 읽으면서 나름 번역하여 본 글을 작성해보았다
+* Reactor는 Rx와 같은 Reactive 패러다임의 구현체이며, Reactive Streams sepc의 구현도 포함하고 있는 Java 라이브러리이다
+* Reactor reference를 읽으면서 공부해보았고, 나름 번역하여 본 글을 작성해보았다
 
 # 1. About the Documentation
 

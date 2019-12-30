@@ -1,6 +1,6 @@
 ---
 layout: post
-title: UUID 정의
+title: UUID란 무엇인가
 tags: [Database, Standard]
 comments: true
 ---

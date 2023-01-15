@@ -1,0 +1,26 @@
+title:              Tech Blog by Jongho Jeon
+email:              hojong.jjh@gmail.com
+description:        A server developer's archive
+author:             Start Bootstrap
+# baseurl:            "/startbootstrap-clean-blog-jekyll"
+url:                "https://hojongs.github.io"
+
+# Social Profiles
+twitter_username:   hojong_j
+github_username:    hojongs
+# facebook_username:  StartBootstrap
+instagram_username:  
+linkedin_username: jh-jeon
+
+# Add your google-analytics ID here to activate google analytics
+google_analytics:   G-9TM2NSJQJG # out your google-analytics code
+
+# Build settings
+markdown:           kramdown
+paginate:           20
+paginate_path:      "/posts/page:num/"
+plugins:
+  - jekyll-feed
+  - jekyll-paginate
+  - jekyll-sitemap ## Uncomment this line to silently generate a sitemaps.org compliant sitemap for your Jekyll site
+

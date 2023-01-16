@@ -4,6 +4,7 @@ title: "My Medium post links"
 subtitle: "Medium에 작성했던 포스트들이 Google에 인덱싱되지 않아서, 이 포스트에 링크들을 추가한다."
 date: 2023-01-16
 background: '/img/posts/01.jpg'
+toc: false
 ---
 
 - [Kotlin: 코루틴 vs Suspending function 차이](https://hojongs.medium.com/kotlin-코루틴-vs-suspending-function-차이-e730b85f398e)
@@ -16,3 +17,4 @@ background: '/img/posts/01.jpg'
 - [Why use HTTP/2 over HTTP/1.x?](https://medium.com/jongho-developer/why-use-http-2-over-http-8d30a749eb6d)
 - [Argo CD Intro: how to deploy an app with Argo CD](https://medium.com/jongho-developer/argo-cd-intro-how-to-deploy-app-with-argo-cd-d850e0353eb1)
 - [Simple Canary deployment with Istio on Kubernetes](https://medium.com/jongho-developer/simple-canary-deployment-with-istio-on-kubernetes-a2e04b258e4c)
+

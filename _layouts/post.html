@@ -32,7 +32,22 @@ layout: default
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
 
-        {{ content }}
+        {% if page.toc %}
+        <div id="table-of-contents">
+          <strong>Table of Contents</strong>
+          <hr/>
+          {{ content | toc_only }}
+        </div>
+        <div id="content">
+          <strong>Contents</strong>
+          <hr/>
+          {{ content | inject_anchors }}
+        </div>
+        {% else %}
+        <div id="content">
+          {{ content }}
+        </div>
+        {% endif %}
 
         <hr>
 

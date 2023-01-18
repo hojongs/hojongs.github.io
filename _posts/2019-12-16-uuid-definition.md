@@ -3,7 +3,7 @@ layout: post
 title: UUID란 무엇인가
 toc: true
 redirect_from:
-  - /uuid.html
+  - /uuid-definition/
 ---
 
 * UUID는 Universally unique identifier의 약자로서, 정보 식별을 위하여 사용되는 식별자이다

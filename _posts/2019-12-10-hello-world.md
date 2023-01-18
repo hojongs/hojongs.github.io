@@ -25,6 +25,4 @@ Github Web에서 작성은 불편해서, Local IDE에서 작성해야겠습니�
 
 <br>
 
-틀린 내용 지적 / 질문
-- [Pull Request](https://github.com/hojongs/hojongs.github.io/pulls)
-- [email](hojong.jjh@gmail.com)
+틀린 내용 지적 / 질문 환영!

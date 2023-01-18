@@ -1,7 +1,7 @@
 title:              Tech Blog by Jongho Jeon
 email:              hojong.jjh@gmail.com
 description:        A server developer's archive
-author:             Start Bootstrap
+author:             Jongho Jeon
 # baseurl:            "/startbootstrap-clean-blog-jekyll"
 url:                "https://hojongs.github.io"
 
@@ -24,4 +24,5 @@ plugins:
   - jekyll-paginate
   - jekyll-sitemap ## Uncomment this line to silently generate a sitemaps.org compliant sitemap for your Jekyll site
   - jekyll-toc
+  - jekyll-redirect-from
 

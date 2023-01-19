@@ -16,7 +16,7 @@ linkedin_username: jh-jeon
 google_analytics:   G-9TM2NSJQJG # out your google-analytics code
 
 # Build settings
-markdown:           kramdown
+markdown:           CommonMark # kramdown
 paginate:           20
 paginate_path:      "/posts/page:num/"
 plugins:
@@ -25,4 +25,3 @@ plugins:
   - jekyll-sitemap ## Uncomment this line to silently generate a sitemaps.org compliant sitemap for your Jekyll site
   - jekyll-toc
   - jekyll-redirect-from
-

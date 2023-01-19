@@ -9,6 +9,10 @@ background: '/img/github-profile.png'
 
 그리고 2023년 1월 현재, github.io로 블로그를 이사왔다. Medium이 불편하지 않았다면, 당연히 블로그 이사를 하지 않았을 것이다. 트리거는 포스트들이 Google에 너무 오랫동안 인덱싱되지 않는 것이었다. 그래서 이사했다.
 
+a
+b
+c
+
 # 블로그 플랫폼 이사의 역사
 
 > 나는 Tistory, GitHub Pages, Medium. 이렇게 3가지 플랫폼을 사용하였다.

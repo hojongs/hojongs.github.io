@@ -23,6 +23,23 @@ Github Web에서 작성은 불편해서, Local IDE에서 작성해야겠습니�
 * 작성 날짜를 임의로 지정할 수 있다. (수동으로 관리해야 한다는 건 단점일 수 있음)
 * 제3자가 PR을 통해 글에 기여할 수도 있다.
 
+---
+
+* 코드 블록
+  ```kotlin
+  package com.hojongs
+  
+  import com.hojongs.MyClass
+  
+  fun f() {
+    println("Hello, world!")
+  }
+  ```
+
+```python
+print('hi')
+```
+
 <br>
 
 틀린 내용 지적 / 질문 환영!

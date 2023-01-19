@@ -2,7 +2,6 @@
 layout: post
 title: "My Medium post links"
 subtitle: "Medium에 작성했던 포스트들이 Google에 인덱싱되지 않아서, 이 포스트에 링크들을 추가한다."
-date: 2023-01-16
 background: '/img/posts/01.jpg'
 toc: false
 ---

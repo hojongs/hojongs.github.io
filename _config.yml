@@ -25,3 +25,9 @@ plugins:
   - jekyll-sitemap ## Uncomment this line to silently generate a sitemaps.org compliant sitemap for your Jekyll site
   - jekyll-toc
   - jekyll-redirect-from
+
+commonmark:
+  # autolink: 링크 as <a>
+  # tasklist: - [ ] ...
+  # strikethrough: 취소선
+  extensions: ["autolink", "tasklist", "strikethrough"]

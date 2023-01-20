@@ -15,10 +15,10 @@ background: '/img/github-profile.png'
 
 내가 블로그 플랫폼을 옮겨온 역사는 이렇다. 이렇게 써놓고보니 나 꽤 오랫동안 블로그를 해왔다. 이사를 많이 다녔을 뿐.
 
-- Tistory (2015.11~2018.07): https://ssaemo.tistory.com/ (여기를 제일 오래 썼다)
-- GitHub Pages (2019.12~2020.01): https://github.com/hojongs/hojongs.github.io-legacy (현재 블로그에 2023년도 이전 글은 이 때 쓴 글들이다. 이 때 나는 첫 직장에서 개발자 커리어를 시작했다.)
-- Medium (2021.01~2022.11): https://hojongs.medium.com/
-- 그리고 현재, 다시 GitHub Pages (2023.01~): https://hojongs.github.io/
+- Tistory (2015.11~2018.07): <https://ssaemo.tistory.com/> (여기를 제일 오래 썼다)
+- GitHub Pages (2019.12~2020.01): <https://github.com/hojongs/hojongs.github.io-legacy> (현재 블로그에 2023년도 이전 글은 이 때 쓴 글들이다. 이 때 나는 첫 직장에서 개발자 커리어를 시작했다.)
+- Medium (2021.01~2022.11): <https://hojongs.medium.com/>
+- 그리고 현재, 다시 GitHub Pages (2023.01~): <https://hojongs.github.io/>
 
 ## 블로그 플랫폼 이사를 다닌 이유
 
@@ -42,7 +42,7 @@ Tistory에서 왜 이사했나?를 리마인드해보자. 사실 이 때 글들�
 아마 회사를 다니며 개발자 생활을 하다가, 내가 그동안 뭐했지?를 고민했던 것 같기도 하다. 그래서 뭐라도 남기자는 마음에 블로그를 다시 시작하려고 고민했던 것 같다. 이미 Notion에 많은 private 문서들을 작성했는데, 이걸 공개하지 않을 이유가 없었다.  
 그리고, 블로그 플랫폼을 한참 고민했다.
 
-당시에 쓴 글: https://ssaemo.tistory.com/354
+당시에 쓴 글: <https://ssaemo.tistory.com/354>
 
 ```
 medium 포스트 작성 UX가 전반적으로 티스토리보다 퀄리티가 높고

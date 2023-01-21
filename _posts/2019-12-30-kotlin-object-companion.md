@@ -1,9 +1,10 @@
 ---
 layout: post
 title: Kotlin Object, Companion Object, Anonymous Object
-toc: true
 redirect_from:
   - /kotlin-object-companion/
+categories: [Server development]
+tags: [Kotlin]
 ---
 
 - 아래 Kotlin 공식 문서에서 관련 내용을 찾을 수 있었다

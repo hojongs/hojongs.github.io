@@ -1,9 +1,8 @@
 ---
 layout: post
 title: "My Medium post links"
-subtitle: "Medium에 작성했던 포스트들이 Google에 인덱싱되지 않아서, 이 포스트에 링크들을 추가한다."
-background: '/img/posts/01.jpg'
-toc: false
+categories: [Random]
+tags: []
 ---
 
 - [Kotlin: 코루틴 vs Suspending function 차이](https://hojongs.medium.com/kotlin-코루틴-vs-suspending-function-차이-e730b85f398e)

@@ -1,9 +1,10 @@
 ---
 layout: post
 title: AWS EC2 프리티어 ubuntu 인스턴스 생성
-toc: true
 redirect_from:
   - /aws-ec2-free-tier-ubuntu/
+categories: [Server development]
+tags: [AWS, EC2, VPC]
 ---
 
 # Introduction

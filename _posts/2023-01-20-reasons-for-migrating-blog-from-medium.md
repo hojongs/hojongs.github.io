@@ -1,9 +1,11 @@
 ---
 layout: post
 title: Medium 블로그를 이사온 이유, 블로그 플랫폼 비교
-subtitle: "왜 2년동안 사용하던 Medium을 버리고 github.io로 이사온 이유를 개발자로서 이야기하려 한다."
-background: '/img/github-profile.png'
+categories: [Random]
+tags: []
 ---
+
+왜 2년동안 사용하던 Medium을 버리고 github.io로 이사온 이유를 개발자로서 이야기하려 한다.
 
 2021년 1월 (정확히 2년 전) Medium에 첫 글을 publish했다. 내가 Medium에 publish한 포스트는 50개다. (생각보다 많았다)  
 

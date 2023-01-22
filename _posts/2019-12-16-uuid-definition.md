@@ -1,11 +1,11 @@
 ---
 layout: post
 title: UUID란 무엇인가
+categories: [Terminology]
+tags: [Database]
 redirect_from:
   - /uuid-definition/
   - /2019/12/16/uuid-definition.html
-categories: [Terminology]
-tags: [Database]
 ---
 
 * UUID는 Universally unique identifier의 약자로서, 정보 식별을 위하여 사용되는 식별자이다

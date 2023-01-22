@@ -1,10 +1,11 @@
 ---
 layout: post
 title: Reactor Reference Reading
-redirect_from:
-  - /reactor-reference/
 categories: [Server development]
 tags: [Spring Webflux, Reactor, Reactive streams, Java]
+redirect_from:
+  - /reactor-reference/
+  - /2019/12/10/reactor-reference.html
 ---
 
 * Spring Webflux에 내장되어 있는 Reactor를 사용하기 위해 Reactor Reference를 읽으면서 공부하게 되었다 

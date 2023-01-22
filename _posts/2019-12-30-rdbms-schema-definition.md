@@ -1,10 +1,11 @@
 ---
 layout: post
 title: RDBMS Schema란 무엇인가
-redirect_from:
-  - /rdbms-schema-definition/
 categories: [Database]
 tags: [Kotlin, Flyway, Exposed(Kotlin)]
+redirect_from:
+  - /rdbms-schema-definition/
+  - /2019/12/30/rdbms-schema-definition.html
 ---
 
 - 회사에서 참여하고 있는 프로젝트가 Exposed SQL Framework와 Flyway DB Migration Tool를 사용하고 있다

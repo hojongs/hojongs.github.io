@@ -1,10 +1,11 @@
 ---
 layout: post
 title: 기술 블로그 시작
-redirect_from:
-  - /hello-world/
 categories: [Random]
 tags: []
+redirect_from:
+  - /hello-world/
+  - /2019/12/10/hello-world.html
 ---
 
 글 작성 테스트를 위한 포스트입니다.

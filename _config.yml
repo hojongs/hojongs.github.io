@@ -21,7 +21,7 @@ timezone: Asia/Seoul
 
 title: Tech Blog by hojongs
 
-tagline: A server developer's archive
+tagline: 호기심 많은 서버 개발자의 문서 저장소
 
 description: >-                        # used by seo meta and the atom feed
   Spring Boot, Kotlin, Kubernetes, Docker, DevOps 등에 호기심이 많은 한 서버 개발자의 문서 저장소

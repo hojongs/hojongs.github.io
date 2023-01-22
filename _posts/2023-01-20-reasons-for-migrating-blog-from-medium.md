@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Medium 블로그를 이사온 이유, 블로그 플랫폼 비교
+title: Medium 블로그에서 이사온 이유, 블로그 플랫폼 비교
 categories: [Random]
 tags: []
 ---

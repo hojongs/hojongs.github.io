@@ -1,8 +1,8 @@
 ---
 layout: post
-title: UUID란 무엇인가
+title: UUID란? UUID 정의 (aka GUID)
 categories: [Terminology]
-tags: [Database]
+tags: [Database, Identifier]
 redirect_from:
   - /uuid-definition/
   - /2019/12/16/uuid-definition.html

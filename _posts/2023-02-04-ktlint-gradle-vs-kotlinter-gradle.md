@@ -5,6 +5,8 @@ categories: [Server development]
 tags: [Kotlin, Gradle]
 ---
 
+Gradle 프로젝트에서 ktlint를 사용할 때는 보통 gradle plugin을 사용한다. ktlint 플러그인 중 가장 많이 사용하는 플러그인 2개 ktlint-gradle, kotlinter-gradle를 소개하고 비교한다.
+
 ktlint는 Javascript의 eslint처럼 Kotlin의 lint* tool이다.
 
 > lint?: 작성한 코드의 줄 길이, 들여쓰기(indent), new line of end of the file 등의 코딩 스타일들을 rule로 관리하는 툴

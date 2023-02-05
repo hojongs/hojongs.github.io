@@ -200,6 +200,6 @@ ktlint-gradle과 kotlinter-gradle 둘다 사용할 수 있는 플러그인이다
 이 포스트가 ktlint-gradle 플러그인을 사용하고 있는 사람들에게 참고가 되길 바란다.  
 우리 팀에서는 ktlint-gradle을 계속해서 사용해오다가, 최근에 Gradle 등 버전을 올리면서 여러 가지 이슈를 겪고 결국 kotlinter-gradle로 플러그인을 변경하였다.
 
-spotless라는 대안도 있는 것 같은데, 고려해보진 않았다. 저장소를 봤을 때는 maintainace가 더 잘 되지 않을까하는 기대가 있다.
+spotless라는 대안도 있는 것 같은데, 고려해보진 않았다. 저장소를 봤을 때는 maintenance가 더 잘 되지 않을까하는 기대가 있다.
 
 <https://github.com/diffplug/spotless>

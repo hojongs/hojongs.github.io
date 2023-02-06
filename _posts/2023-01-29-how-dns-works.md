@@ -74,6 +74,15 @@ whois site
 
 몇몇은 DNS에 대한 내용을 꽤 지루하게 느낄지도 모른다. 이해라기보다는 암기에 가까운 느낌이 들어서 그럴지도 모른다. (아니면 내가 재미없게 설명하거니...) 하지만 DNS는 네트워크 어디서든 항상 의존하고 사용하는 시스템이기 때문에, 동작에 대한 호기심과 답답함이 있었다. 그래서 한 번 제대로 정리해두고자 했다.
 
+본 포스트는 2가지 의문에 대해 간단히 설명했다.
+
+- DNS 쿼리는 어느 네임 서버로 요청을 보내는가?: Authoritative server 혹은 DNS resolver부터 시작한다.
+- `Authoritative, Non-authoritative server`란 무엇인가?: 본문 참고, Non-authoritative server는 DNS resolver를 의미한다.
+- DNS 레코드의 TTL이란 무엇인가?
+- DNS SOA 레코드의 역할은 무엇인가?
+- DNS query의 negative cache란 무엇인가?
+- nslookup, dig, whois command의 사용법 및 결과값 이해
+
 ## Additional references
 
 <https://ns1.com/resources/dns-propagation>

@@ -94,3 +94,8 @@ properties 파일들과 같은 여러 개의 configuration이 주어졌을 때 �
 > Spring Boot: Externalized Configuration: <https://docs.spring.io/spring-boot/docs/2.7.8/reference/htmlsingle/#features.external-config>
 
 Cloud config에서 import된 properties는 기본적으로 jar 파일 내부에 존재하는 properties 파일보다 더 높은 우선순위를 가진다. 그러나, remote repository에 `override-none` property를 `true`로 설정함으로써, 최하위의 우선순위를 가지도록 변경할 수 있다.
+
+# References
+
+- Spring Cloud properties: https://docs.spring.io/spring-cloud/docs/2021.0.5/reference/html/configprops.html
+- 그 외 본문 내 링크들

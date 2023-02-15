@@ -97,5 +97,5 @@ Cloud config에서 import된 properties는 기본적으로 jar 파일 내부에 
 
 # References
 
-- Spring Cloud properties: https://docs.spring.io/spring-cloud/docs/2021.0.5/reference/html/configprops.html
+- Spring Cloud properties: <https://docs.spring.io/spring-cloud/docs/2021.0.5/reference/html/configprops.html>
 - 그 외 본문 내 링크들

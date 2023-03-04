@@ -58,6 +58,92 @@ ES Connection이라니 무슨 말인가? 서비스는 ES와 HTTP로 통신하는
 
 1번 방법은 Elasticsearch query 요청 시마다 새로운 TCP connection을 맺는 오버헤드가 컸다. 이는 Elasticsearch에 불필요한 부하를 발생시키고 서비스 response latency를 증가시키는 단점이 있다. 그래서 **2번 방법을 선택했다.**
 
+# httpasyncclient >= 4.1.5
+
+만약 httpasyncclient의 버전이 4.1.5 미만이라면 Gradle에서 버전업이 필요하다.
+
+```kotlin
+dependencies {
+    implementation("org.apache.httpcomponents:httpasyncclient:4.1.5")
+}
+```
+
 # Elasticsearch Client를 customize하는 방법
 
-TBD
+```kotlin
+val client: RestHighLevelClient = RestHighLevelClient(
+    RestClient.builder(HttpHost.create(host))
+        .setHttpClientConfigCallback { httpClientBuilder: HttpAsyncClientBuilder ->
+            httpClientBuilder
+                .setDefaultCredentialsProvider(getCredentialsProvider(user, password))
+                .setConnectionTimeToLive(30, TimeUnit.SECONDS) // HERE!
+        }
+)
+```
+
+설명: Java 라이브러리인 elasticsearch-client의 RestHighLevelClient는 내부적으로 RestClient를 사용한다. 또 이것은 내부적으로 HttpAsyncClient를 사용한다.
+
+HttpClientConfigCallback을 설정하여 HttpAsyncClientBuilder를 설정할 수 있다.
+
+## Spring Boot Starter Data Elasticsearch에서 customize하는 방법
+
+Spring Boot 2.4 기준으로 Connection TTL을 설정해주는 property는 없다. 따라서 직접 customize해야 한다.
+
+RestClientBuilderCustomizer 또는 RestClientBuilder를 정의하는 2가지 방법이 있다. [이전 포스트]에서 다룬 것처럼 **RestClientBuilder bean을 정의하는 방법을 추천한다.** 자세한 설명은 이전 포스트 참고.
+
+[이전 포스트]: https://hojongs.github.io/posts/spring-boot-elasticsearch-usage-and-mechanism/#restclientbuildercustomizer-vs-restclientbuilder
+
+RestClientBuilder bean을 직접 정의하면 ElasticsearchRestClientProperties의 property들이 적용되지 않는다. 따라서 직접 DI 받아서 RestClientBuilder bean에 설정해줘야 한다.
+
+```kotlin
+@Configuration
+class ElasticsearchConfig(
+    @Value("\${myconfig.elasticsearch.connection-ttl-seconds}")
+    private val connectionTtlSeconds: Long,
+    private val properties: ElasticsearchRestClientProperties,
+) {
+    @Bean
+    fun restClientBuilder(): RestClientBuilder {
+        val hosts = properties.uris.map { HttpHost.create(it) }.toTypedArray()
+        return RestClient.builder(*hosts)
+            .setHttpClientConfigCallback { httpClientBuilder: HttpAsyncClientBuilder ->
+                httpClientBuilder
+                    .setDefaultCredentialsProvider(SimpleCredentialsProvider(properties))
+                    .setConnectionTimeToLive(connectionTtlSeconds, TimeUnit.SECONDS)
+            }
+            .setRequestConfigCallback { requestConfigBuilder: RequestConfig.Builder ->
+                requestConfigBuilder
+                    .setConnectTimeout(properties.connectionTimeout.toMillis().toInt())
+                    .setSocketTimeout(properties.readTimeout.toMillis().toInt())
+            }
+    }
+
+    private class SimpleCredentialsProvider(
+        properties: ElasticsearchRestClientProperties,
+    ) : BasicCredentialsProvider() {
+        init {
+            setCredentials(
+                AuthScope.ANY,
+                UsernamePasswordCredentials(properties.username, properties.password)
+            )
+        }
+    }
+}
+```
+
+```properties
+spring.elasticsearch.rest.uris=https://es.example.com
+spring.elasticsearch.rest.username=myuser
+spring.elasticsearch.rest.password=mypassword
+spring.elasticsearch.rest.connection-timeout=5s
+spring.elasticsearch.rest.read-timeout=10s
+myconfig.elasticsearch.connection-ttl-seconds=30
+```
+
+# References
+
+- [Spring Boot Elasticsearch (2.4.13)](https://docs.spring.io/spring-boot/docs/2.4.13/reference/html/spring-boot-features.html#boot-features-elasticsearch)
+- [Spring Boot Elasticsearch (Latest)](https://docs.spring.io/spring-boot/docs/current/reference/html/data.html#data.nosql.elasticsearch)
+- [Spring Data Elasticsearch](https://docs.spring.io/spring-data/elasticsearch/docs/current/reference/html/#reference)
+- [Spring Boot + Elasticsearch 사용법 및 동작방식](https://hojongs.github.io/posts/spring-boot-elasticsearch-usage-and-mechanism/#restclientbuildercustomizer-vs-restclientbuilder)
+- 본문 내 링크들

@@ -3,6 +3,8 @@ layout: post
 title: "애플리케이션 서버 HTTP Client에 도메인 IP 변경 전파하는 방법 (Elasticsearch)"
 categories: [Server development]
 tags: [Spring Boot, Spring Data, Spring Data Elasticsearch, Elasticsearch, HTTP, Network, Network TTL, DNS, GSLB]
+redirect_from:
+  - /posts/how-to-propagate-elasticsearch-domain-ip-change-to-application-http-client/
 ---
 
 # 갑자기 Elasticsearch 도메인의 IP가 바뀐다면?

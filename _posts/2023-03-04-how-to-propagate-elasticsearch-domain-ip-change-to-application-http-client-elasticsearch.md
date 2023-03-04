@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "애플리케이션 서버 HTTP Client에 도메인 IP 변경 전파하는 방법"
+title: "애플리케이션 서버 HTTP Client에 도메인 IP 변경 전파하는 방법 (Elasticsearch)"
 categories: [Server development]
 tags: [Spring Boot, Spring Data, Spring Data Elasticsearch, Elasticsearch, HTTP, Network, Network TTL, DNS, GSLB]
 ---

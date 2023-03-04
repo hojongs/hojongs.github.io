@@ -140,6 +140,12 @@ spring.elasticsearch.rest.read-timeout=10s
 myconfig.elasticsearch.connection-ttl-seconds=30
 ```
 
+# Conclusion
+
+위와 같이 적용 후 Elasticsearch Connection이 30초마다 새로 생성되는 것을 확인할 수 있었다. 커넥션 생성 시마다 DNS resolustion이 발생하여 변경된 도메인 IP로 resolve되었다.
+
+따라서 Elasticsearch Active-active 이중화 구조에서 애플리케이션(주소검색 서비스) 재배포 없이 Elasticsearch 트래픽을 전환할 수 있었다.
+
 # References
 
 - [Spring Boot Elasticsearch (2.4.13)](https://docs.spring.io/spring-boot/docs/2.4.13/reference/html/spring-boot-features.html#boot-features-elasticsearch)

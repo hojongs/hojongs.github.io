@@ -222,6 +222,8 @@ RestClient 내부적으로 사용하는 Apache HttpAsyncClient에서 connection 
 
 따라서 해당 의존성 버전을 4.1.5로 올리고, connection TTL 설정을 추가하여 ES 도메인 IP 변경 후 커넥션이 다시 연결될 수 있도록 할 수 있었다.
 
+이와 관련하여 좀더 별도로 포스트를 작성하였다: [애플리케이션 서버 HTTP Client에 도메인 IP 변경 전파하는 방법](https://hojongs.github.io/posts/how-to-propagate-elasticsearch-domain-ip-change-to-application-http-client/)
+
 # Conclusion
 
 Elasticsearch 관련 Spring boot, Spring data 사용법과 몇몇 트러블슈팅 사례를 공유했다. 추가적으로 실제 업무에서 Spring data elasticsearch 관련 약간 더 깊은 수준의 사례들을 공유해보았다.

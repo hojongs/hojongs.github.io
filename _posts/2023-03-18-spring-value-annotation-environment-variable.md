@@ -53,6 +53,15 @@ class SomeClass(
 
 > Kotlin에서 `@Value` 값에 `$` 사용 시에는 `\$`로 입력해야 함을 주의
 
+SpEL 수준에서 default value를 지정할 수도 있다.
+
+```kotlin
+@Value("#{systemProperties['unknown'] ?: 'some default'}")
+private spelSomeDefault: String
+```
+
+Spring Value 어노테이션에 대한 자세한 내용은 여기를 참고: <https://www.baeldung.com/spring-value-annotation>
+
 ### 동작원리: `@Value` and SpEL
 
 `#{ <expression string> }`의 표현식은 SpEL (Spring Expression Language)의 문법이다. `@Value` 어노테이션의 값에 SpEL을 사용할 수 있는 것이다.

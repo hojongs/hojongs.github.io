@@ -14,7 +14,7 @@ redirect_from:
 > 본 포스트는 아래 문서를 기반으로 작성하였다.  
 > <https://github.com/Kotlin/KEEP/blob/master/proposals/stdlib/result.md>
 
-# 가장 익숙한 에러 헨들링 방식 (throw Exception)
+## 가장 익숙한 에러 헨들링 방식 (throw Exception)
 
 실패(에러)를 처리할 때 우리에게 가장 익숙한 방법은 `throw Exception`, 즉 예외이다.
 
@@ -29,15 +29,15 @@ redirect_from:
 
 > NOTE: Result 타입은 Kotlin 1.5부터 함수의 return type으로 직접 선언할 수 있다.
 
-# Use cases
+## Use cases
 
 아래는 Result type이 유용한 유즈 케이스들(사례들)이다.
 
-## Continuation and similar callbacks
+### Continuation and similar callbacks
 
 Result 타입은 원래 Continuation interface 구현을 돕기 위해 제안되었다. Continuation은 Kotlin 내부적으로 coroutine 구현에 사용된다. 하지만 이 포스트에서는 Continuation에 대해서는 자세히 다루지 않을 것이다.
 
-## Asynchronous parallel decomposition
+### Asynchronous parallel decomposition
 
 [참고 문서](https://github.com/Kotlin/KEEP/blob/master/proposals/stdlib/result.md#asynchronous-parallel-decomposition)에 나와있는 예제 코드를 보자.
 
@@ -58,7 +58,7 @@ val outcomes3: List<Result<T>> = deferreds.map { runCatching { it.await() } } //
 - outcome2: 가장 먼저 실패가 발생할 때 crash가 발생한다.
 - outcome3: **crash 없이 모든 호출 결과를 얻을 수 있다! (실패가 포함되어 있더라도)**
 
-## Functional bulk manipulation of failures
+### Functional bulk manipulation of failures
 
 **Kotlin은 함수형 스타일 코드 작성을 권장한다.** 함수형 코드는 업무(business) 관련 실패가 nullable type 또는 sealed class 구조로 표현되면 잘 동작한다. 하지만 로컬 핸들링을 요구하지 않는 exception으로 표현되는 다른 종류의 실패들이 발생하는 경우에는 그렇지 않다.
 
@@ -110,7 +110,7 @@ readFilesCatching(files).map { result: Result<Data> ->
 }
 ```
 
-## Functional error handling
+### Functional error handling
 
 **대부분의 함수형 코드에서 try-catch 문은 잘 어울리지 않는다.** 아래의 RxKotlin, Java CompletableFuture 코드를 보자. 모든 코드 스니펫은 성공일 경우 processData 함수를, 실패일 경우 showErrorDialog 함수를 호출한다.
 
@@ -157,11 +157,11 @@ runCatching { doSomethingSync() }
     .onSuccess { processData(it) }
 ```
 
-# Alternatives
+## Alternatives
 
 Kotlin 커뮤니티의 여러 가지 라이브러리들이 success or failure union type을 제공한다. 하지만 표준 라이브러리에서 이러한 라이브러리들에 의존할 수는 없다. 이 섹션에서는 이러한 의존없이 작성된 코드들에 대해서 살펴본다.
 
-## Error handling alternative
+### Error handling alternative
 
 성공 결과값의 nullable 여부에 따라 아래와 같은 대안 코드들이 있다. [참고 문서](https://github.com/Kotlin/KEEP/blob/master/proposals/stdlib/result.md#error-handling-alternative)의 코드를 그대로 인용했다.
 
@@ -195,7 +195,7 @@ if (success)
 
 runCatching 함수를 이용한 코드와 비교했을 때, 상대적으로 코드가 많이 길어진다. (가독성이 낮아보인다) 또한 nullable 여부에 따라 2가지 코드로 나뉘어야 한다는 점과 mutable 변수(var)에 의존해야 한다는 점이 아쉽다.
 
-# Error-handling style and exceptions
+## Error-handling style and exceptions
 
 > 문서를 읽으면서 이 부분이 가장 흥미로웠다.
 
@@ -261,7 +261,7 @@ fun findUserByName(name: String): User
 runCatching { findUserByName(name) }
 ```
 
-# References
+## References
 
 - [KEEP: Encapsulate successful or failed function execution
 ](https://github.com/Kotlin/KEEP/blob/master/proposals/stdlib/result.md)

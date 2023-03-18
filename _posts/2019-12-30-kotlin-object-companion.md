@@ -11,7 +11,7 @@ redirect_from:
 - 아래 Kotlin 공식 문서에서 관련 내용을 찾을 수 있었다
     - [Objects and companion objects](https://kotlinlang.org/docs/tutorials/kotlin-for-py/objects-and-companion-objects.html)
 
-# Object
+## Object
 
 - Kotlin에서는 language-level에서 singleton pattern이 지원된다
 - class 대신, `object` 키워드를 사용하여 선언하면 그 object는 singleton이 된다
@@ -22,7 +22,7 @@ redirect_from:
     }
 ```
 
-# Companion Object
+## Companion Object
 
 - singleton instance보다는 class의 static method를 선언하고 싶을 때는, `companion object`를 활용할 수 있다
 
@@ -54,13 +54,13 @@ redirect_from:
     companion object Factroy : FactoryBase
 ```
 
-## `@JvmStatic`
+### `@JvmStatic`
 
 - Java static method로 만드려면, member에게 `@JvmStatic` annotation을 붙이면 된다
 
 - A class는 오직 하나의 companion object를 가질 수 있고, 이들은 중첩될 수 없다
 
-## overridable Class-level function in a subclass
+### overridable Class-level function in a subclass
 
 - companion object의 멤버들은 class name을 통해서만 접근 가능하고, instance를 통해서는 접근 불가능하다
 - Kotlin은 overridable class-level function in a subclass을 지원하지 않는다
@@ -75,7 +75,7 @@ redirect_from:
 > `open` 은 subclassing 또는 overriding을 가능하게 한다
 - [Keywords and Operators](https://kotlinlang.org/docs/reference/keyword-reference.html)
 
-# Object Expression
+## Object Expression
 
 - java에서 interface를 parameter로 가지는 function을 호출할 때, object expression을 사용할 수 있다
 - 즉, anonymous object를 다음과 같이 선언할 수 있다

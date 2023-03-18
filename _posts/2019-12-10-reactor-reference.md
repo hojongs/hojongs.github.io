@@ -12,12 +12,12 @@ redirect_from:
 * Reactor는 Rx와 같은 Reactive 패러다임의 구현체이며, Reactive Streams sepc의 구현도 포함하고 있는 Java 라이브러리이다
 * Reactor reference를 읽으면서 공부해보았고, 나름 번역하여 본 글을 작성해보았다
 
-# 1. About the Documentation
+## 1. About the Documentation
 
 * `생략`
 
-# 2. Getting Started
-## 2.1 Introducing Reactor
+## 2. Getting Started
+### 2.1 Introducing Reactor
 
 * Reactor = fully non-blocking reactive programming foundation for JVM
 * 효과적인 demand management 또한 제공 ("backpressure"를 관리하는 형식으로)
@@ -32,7 +32,7 @@ redirect_from:
   * HTTP, TCP, UDP를 위한 네트워크 엔진
   * Reactive 인코딩/디코딩 완벽 지원
 
-#### Keyword
+##### Keyword
 
 |Keyword|Description|
 |-------|-----------|
@@ -44,7 +44,7 @@ redirect_from:
 |Reactive Streams|Java Reactive Library 표준 Spec|
 |Backpressure-ready network engine|Reactor Netty를 사용해보지 않아서 모르겠음|
 
-## 2.2 Prerequisites
+### 2.2 Prerequisites
 
 * Java 8 이상 필요
 * It has a transitive dependency on org.reactivestreams:reactive-streams:1.0.3.
@@ -57,7 +57,7 @@ redirect_from:
 >
 >  We are open to evaluating changes that benefit Android support in a best-effort fashion. However, we cannot make guarantees. Each decision must be made on a case-by-case basis.
 
-## 2.3 Understanding the BOM
+### 2.3 Understanding the BOM
 
 * BOM : Bill of Materials
 * 이 curated (BOM) 리스트는 아티팩트들을 그룹화함
@@ -90,34 +90,34 @@ Californium-SR32
 * 글을 작성하고있는 현재, Reactor Core version는 `3.3.1.RELEASE`, Release Train은 `Dysprosium-SR2`이다.
 * Reactor Netty 또한 version은 `0.9.2.RELEASE`임에도 불구하고 Release Train은 `Dysprosium-SR2`임을 확인할 수 있다.
 
-#### Keyword
+##### Keyword
 
 |Keyword|Description|
 |-------|-----------|
 |BOM|직역하면 Material들의 명세서, 연관된 아티팩트들의 편리한 버전 관리를 위한 버전 명세방법|
 
-## 2.4 Getting Reactor
+### 2.4 Getting Reactor
 
-### 2.4.1 Maven Installation
+#### 2.4.1 Maven Installation
 
 `생략`
 
-### 2.4.2 Gradle Installation
+#### 2.4.2 Gradle Installation
 
-#### Keyword
+##### Keyword
 
 |Keyword|Description|
 |-------|-----------|
 |Gradle|Build system 중 하나|
 
-#### TODO
+##### TODO
 
 * 현재 Gradle이 Maven보다 널리 사용된다고 알고 있다.
 * 비교적 빠른 빌드속도 외에 gradle이 널리 사용되는 이유는 뭘까?
 
-### 2.4.3. Milestones and Snapshots
+#### 2.4.3. Milestones and Snapshots
 
-# 3. Introduction to Reactive Programming
+## 3. Introduction to Reactive Programming
 
 * Reactor = Reactive programming paradigm의 구현체
 
@@ -158,7 +158,7 @@ Californium-SR32
 * 이러한 접근방식(`onNext x 0..N [onError | onComplete]`)은 아주 유연하다(flexible)
 * 이 패턴은 값이 없거나, 하나이거나, n개인 경우를 모두 지원한다 (continuing ticks of a clock과 같은 무한 sequence도 포함)
 
-#### Keyword
+##### Keyword
 
 |Keyword|Description|
 |-------|-----------|
@@ -167,7 +167,7 @@ Californium-SR32
 |Control Flow|프로그램의 실행 제어 흐름|
 
 
-## 3.1. Blocking Can Be Wasteful
+### 3.1. Blocking Can Be Wasteful
 
 * 현대 응용들은 거대한 양의 동시 사용자를 가질 수 있고, 
 * 현대 하드웨어의 용량은 계속해서 향상되고 있음에도 불구하고 현대 소프트웨어의 성능은 여전히 핵심 관심사이다
@@ -197,7 +197,7 @@ Californium-SR32
 * 하드웨어의 full power를 사용해야 하지만, (하드웨어를 더 효율적으로 활용해야 하지만)
 * 리소스 낭비는 이유가 복잡하고 발생하기 쉽다
 
-## 3.2. Asynchronicity to the Rescue?
+### 3.2. Asynchronicity to the Rescue?
 
 * 두번째 접근방법 효율성 추구는 리소스 낭비 문제의 해결방법이 될 수 있다
 * 비동기 Non-blocking 코드를 통해 execution을, 같은 자원을 사용하는 다른 active task로 switch한 후
@@ -211,33 +211,33 @@ Californium-SR32
 
 `TODO`
 
-## 3.3. From Imperative to Reactive Programming
+### 3.3. From Imperative to Reactive Programming
 
 `TODO`
 
-# 4. Reactor Core Features
+## 4. Reactor Core Features
 
 `TODO`
 
-## 4.1. Flux, an Asynchronous Sequence of 0-N Items
+### 4.1. Flux, an Asynchronous Sequence of 0-N Items
 
 `TODO`
 
-## 4.2. Mono, an Asynchronous 0-1 Result
+### 4.2. Mono, an Asynchronous 0-1 Result
 
 `TODO`
 
-## 4.3. Simple Ways to Create a Flux or Mono and Subscribe to It
+### 4.3. Simple Ways to Create a Flux or Mono and Subscribe to It
 
 `TODO`
 
-## 4.4. Programmatically creating a sequence
+### 4.4. Programmatically creating a sequence
 
 * 이 섹션에서는, 관련 이벤트들(onNext, ...)을 프로그래밍 방식으로 정의하여, Flux나 Mono를 생성하는 것을 소개한다
 * 이러한 모든 방법들은, 공개된 API를 가지는데, 이것들은 event를 발생시켜 sink를 호출한다
 * 몇 가지의 sink들이 있는데, 한번 보자
 
-### 4.4.1. Synchronous generate
+#### 4.4.1. Synchronous generate
 
 * 가장 간단한 프로그래밍 방식 Flux 생성은 generate method를 통한 것이다
 * 이것은 generator function을 인자로 받는다
@@ -315,7 +315,7 @@ Flux<String> flux = Flux.generate(
 * "DB 연결이나 프로세스 마지막에 처리되어야 하는 다른 리소스"를 포함하는 상태의 경우, 
 * consumer(소비자) lambda는 커넥션을 닫거나 프로세스 마지막에 처리되어야 하는 임의의 task를 처리할 수 있다
 
-### 4.4.2. Asynchronous and Multi-threaded: create
+#### 4.4.2. Asynchronous and Multi-threaded: create
 
 * create는 더 발전된 Flux를 프로그래밍 방식으로 생성하는 형태이다
 * 이것은 순회마다 여러 번의 emission에 적절하다.
@@ -393,7 +393,7 @@ Flux<String> bridge = Flux.create(sink -> {
 * Mono 또한 create generator를 가진다.
 * Mono의 MonoSink는 한 번의 emission 후, 나머지 signal은 모두 drop한다
 
-### 4.4.3. Asynchronous but single-threaded: push
+#### 4.4.3. Asynchronous but single-threaded: push
 
 * push는 generate와 create의 중간이다. 이것은 단일 producer에서 이벤트 처리에 적합하다.
 * 이것은 create와 비슷하다 : push 또한 비동기가 될 수 있고, create에서 지원되는 overflow strategy를 사용하여 backpressure를 관리할 수 있다
@@ -480,15 +480,15 @@ Flux<String> bridge = Flux.create(sink -> {
     });
 ```
 
-### 4.4.4. Handle
+#### 4.4.4. Handle
 
 `TODO`
 
-## 4.5. Threading and Schedulers
+### 4.5. Threading and Schedulers
 
 `TODO`
 
-## 4.6. Handling Errors
+### 4.6. Handling Errors
 
 * 리액티브 스트림즈에서, 에러는 종료(terminal) 이벤트다. 에러는 발생하자마자 시퀀스를 멈추고, 오퍼레이터 체인 아래 쪽으로 전파되어 마지막 단계까지 간다
 * 마지막 단계는 (당신이 정의한) subscriber의 onError method이다
@@ -518,7 +518,7 @@ Flux.just(1, 2, 0)
 
 * 지금 우리는 에러 핸들링 방법을 하나하나 본다. 관련이 있는 경우, 우리는 try 패턴과 병렬적으로 만든다
 
-### 4.6.1. Error Handling Operators
+#### 4.6.1. Error Handling Operators
 
 * 당신은 try-catch 블록으로 예외들을 처리하는 방법들과 더 친숙할 것이다
 * 가장 명백하게, 그것들은 이런 것들을 포함합니다
@@ -572,23 +572,23 @@ try {
 
 
 
-## 4.7. Processors
+### 4.7. Processors
 
 `생략`
 
-## 5. Kotlin support
+### 5. Kotlin support
 
 `TODO`
 
-## 6. Testing
+### 6. Testing
 
 `TODO`
 
-## 7. Debugging Reactor
+### 7. Debugging Reactor
 
 `TODO`
 
-## 7.4. Production-ready Global Debugging
+### 7.4. Production-ready Global Debugging
 
 * Reactor에는 분리된 Java Agent가 함꼐 제공된다
   * 이것은 코드를 계측(instrument)하고 디버깅 정보를 더해준다
@@ -613,7 +613,7 @@ ReactorDebugAgent.processExistingClasses();
 * re-processing은 시간이 좀 걸린다. 로딩된 모든 클래스들을 순회하고 transform 해야하기 때문에.
 * 오직 일부 호출구역(call-sites)이 계측되지 않는 경우에만 사용하자.
 
-### 7.4.1. Limitations
+#### 7.4.1. Limitations
 
 * ReactorDebugAgent는 Java Agent로 구현되었고, self-attach를 위해 ByteBuddy를 사용한다
   * self-attach란, debug agent가 debugging을 위해 응용 프로그램에 붙는 것을 의미한다
@@ -623,4 +623,4 @@ ReactorDebugAgent.processExistingClasses();
 |-------|-----------|
 |ByteBuddy||
 
-## 7.5. Logging a Sequence
+### 7.5. Logging a Sequence

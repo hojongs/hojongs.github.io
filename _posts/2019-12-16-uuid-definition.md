@@ -14,9 +14,9 @@ redirect_from:
 
 ---
 
-# Motivation of the posting
+## Motivation of the posting
 
-## Personal Motivaton
+### Personal Motivaton
 
 - 지금 다니고있는 회사의 DB Schema를 보았더니, Table의 ID Column의 데이터 타입이 UUID였다
 - Integer와 비교했을 때 UUID를 선택한 이유가 무엇인지 궁금했다
@@ -25,7 +25,7 @@ redirect_from:
   - UUID가 무엇인지
   - DB에서 Primary Key로 UUID를 사용하면 어떤 이점이 있는지 
 
-## Database Primary Key and ID column
+### Database Primary Key and ID column
 
 - Database에 데이터를 저장할 때, 데이터 식별을 위해 Primary Key를 사용하고 있다
 - Primary Key는 성능적 이점을 위해 Int Data type과 ID라는 이름을 사용하였다
@@ -33,7 +33,7 @@ redirect_from:
   - 데이터 생성 시, DB가 자동으로 1부터 순서대로 ID를 할당해주도록 하는 것이다.
   - 이 방법은 게시판의 데이터 관리 시 유용하다
 
-## Using UUID as a Primary Key
+### Using UUID as a Primary Key
 
 - 그리고 또다른 방법 중 하나로, UUID를 사용하는 방법이 있다
   - 이를 위해 Exposed 라이브러리에서는 UUIDTable 클래스를 제공해주기도 한다
@@ -45,7 +45,7 @@ redirect_from:
 
 > 모두 읽기에는 시간이 부족하여, 일부 관심있는 내용들만 읽고 정리하였다
 
-# UUID
+## UUID
 
 - UUID는 128-bit 숫자로, 정보 식별에 사용됨
 - Microsoft의 S/W에서는 GUID라고 불림
@@ -59,15 +59,15 @@ redirect_from:
 - 독립적인 일행들(parties)의, UUID를 가진 정보는 무시할만한 중복 가능성과 함께 나중에 단일 DB로 통합되거나 같은 채널에서 전달(transmit) 될 수 있음
 - UUID는 널리 채택되어있고, 많은 컴퓨팅 플랫폼은 UUID 생성 및 UUID 텍스트 표현의 파싱을 지원함
 
-# History
+## History
 
 ...
 
-# Standards
+## Standards
 
 ...
 
-# Format
+## Format
 
 - canonical 텍스트 표현에서, UUID는 16 octets가 32 hex 숫자로 표현되고, hypen(-)으로 구분된 5개의 그룹으로 이루어짐
 - 8-4-4-4-12 형식
@@ -79,7 +79,7 @@ redirect_from:
     - 위 예제에서 N=a(=10xx), variant=1
 - 5개의 그룹은 순서대로 아래를 의미함
 
-## UUID record layout
+### UUID record layout
 
 |Name|Length (bytes)|Length (hex digits)|Contents|
 |----|--------------|-------------------|--------|
@@ -91,7 +91,7 @@ redirect_from:
 
 > 이후 내용은 읽지 못했으므로 여기서 마침
 
-## Conclusion
+### Conclusion
 
 - UUID는 128-bit로 이루어진, "실용적인 측면에서 충분히 고유한" universal 식별자이다
 - UUID를 사용했을 때의 이점들 중 몇 가지를 뽑자면 다음과 같다

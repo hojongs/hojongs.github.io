@@ -24,14 +24,14 @@ Gradle project에서는 plugin을 사용하면 ktlint를 별도로 설치할 필
 
 여담으로, 다양한 lint tool들이 있고 그 중에는 여러 언어를 지원하는 툴들도 있는데 Kotlin에서는 보통 ktlint를 사용하는 것 같다.
 
-# ktlint-gradle
+## ktlint-gradle
 
 아래 내용은 모두 README에서 찾을 수 있다
 
 <https://github.com/JLLeitschuh/ktlint-gradle/blob/main/README.md>
 <https://pinterest.github.io/ktlint/>
 
-## How to set up
+### How to set up
 
 ```kotlin
 plugins {
@@ -43,14 +43,14 @@ ktlint {
 }
 ```
 
-## How to run
+### How to run
 
 ```shell
 ./gradlew ktlintCheck
 ./gradlew ktlintFormat
 ```
 
-## Intellij project 설정과 동기화
+### Intellij project 설정과 동기화
 
 ktlint의 설정과 Intellij의 설정이 다른 경우가 있다. 예를 들면 multiline string의 indent size가 다를 수 있다.  
 그럴 때는 아래 task를 실행하면 
@@ -62,7 +62,7 @@ ktlint의 설정과 Intellij의 설정이 다른 경우가 있다. 예를 들면
 ./gradlew ktlintApplyToIdea
 ```
 
-## Pre-commit hook 등록
+### Pre-commit hook 등록
 
 ```shell
 ./gradlew addKtlintCheckGitPreCommitHook
@@ -71,9 +71,9 @@ ktlint의 설정과 Intellij의 설정이 다른 경우가 있다. 예를 들면
 
 ref: https://github.com/JLLeitschuh/ktlint-gradle/tree/v11.1.0#additional-helper-tasks
 
-## Tips
+### Tips
 
-### ktlint version config
+#### ktlint version config
 
 현재 ktlint-gradle 최신 버전은 11.1.0이고, ktlint 최신 버전은 0.48.2이다.  
 하지만 ktlint-gradle:11.1.0의 default ktlint 버전은 0.43.2로 꽤 낮다. (그리고 0.48.2는 아직 사용 못하는 것 같다.)
@@ -88,18 +88,18 @@ ktlint {
 }
 ```
 
-### Version compatibility with Kotlin, Gradle, Ktlint
+#### Version compatibility with Kotlin, Gradle, Ktlint
 
 ktlint-gradle 혹은 ktlint 버전을 올릴 때 Kotlin, Gradle의 버전을 올려야 할 때도 있다.
 별도로 matrix로 정리된 것은 없는 것 같고, CHANGELOG에서 검색하는 게 제일 빠른 것 같다.
 
 <https://github.com/JLLeitschuh/ktlint-gradle/blob/main/CHANGELOG.md>
 
-# kotlinter-gradle
+## kotlinter-gradle
 
 <https://github.com/jeremymailen/kotlinter-gradle/blob/master/README.md>
 
-## How to set up
+### How to set up
 
 ```kotlin
 plugins {
@@ -107,37 +107,37 @@ plugins {
 }
 ```
 
-## How to run
+### How to run
 
 ```shell
 ./gradlew lintKotlin
 ./gradlew formatKotlin
 ```
 
-## Intellij project 설정과 동기화
+### Intellij project 설정과 동기화
 
 별도로 없는데, 아래 editorconfig 파트를 참고하자.
 
-## Pre-commit hook 등록
+### Pre-commit hook 등록
 
 ```shell
 ./gradlew installKotlinterPrePushHook
 ```
 
-## Tips
+### Tips
 
-### ktlint version config
+#### ktlint version config
 
 ktlint-gradle 대비 거의 최신 버전의 ktlint를 사용하고 있으므로, 별도로 설정할 필요는 없다. (kotlinter-gradle 3.12.0 버전 기준으로, ktlint 0.47.1 버전을 사용하고 있다.)  
 버전 설정 방법은 설정이 좀 긴데, README를 참고하자.
 
-### version compatibility with Kotlin, Gradle
+#### version compatibility with Kotlin, Gradle
 
 아래에 matrix로 정리되어 있다.
 
 <https://github.com/jeremymailen/kotlinter-gradle#compatibility>
 
-# Editorconfig
+## Editorconfig
 
 <https://editorconfig.org/>
 
@@ -155,18 +155,18 @@ editorconfig 파일 사용법은 외부 레퍼런스로 남기겠다.
 - kotlinter-gradle: <https://github.com/jeremymailen/kotlinter-gradle/tree/3.13.0#editorconfig>
 - <https://jojoldu.tistory.com/673>
 
-## ktlint with editorconfig troubleshooting
+### ktlint with editorconfig troubleshooting
 
-### ktlint 0.48.1
+#### ktlint 0.48.1
 
 `disabled_rules` 설정이 deprecated 되었다. `ktlint_disabled_rules` 설정을 사용해야 한다.
 
-### ktlint-gradle 11.1.0
+#### ktlint-gradle 11.1.0
 
 - 이와중에 ktlint-gradle 11.1.0에서 ktlint 0.48.1 버전 사용 시 warning log가 출력되는 이슈가 있다고 한다.
 - <https://github.com/JLLeitschuh/ktlint-gradle/issues/622>
 
-### ktlint 0.46.0 ~ 0.47.0
+#### ktlint 0.46.0 ~ 0.47.0
 
 - editorconfig disabled_rules 설정이 무시되는 버그가 있다 (...)
 <https://github.com/pinterest/ktlint/pull/1671>
@@ -180,7 +180,7 @@ ktlint {
 }
 ```
 
-### ktlint 0.45.0
+#### ktlint 0.45.0
 
 ```
 Could not initialize class com.pinterest.ktlint.core.internal.EditorConfigLoaderKt
@@ -188,7 +188,7 @@ Could not initialize class com.pinterest.ktlint.core.internal.EditorConfigLoader
 
 이런 에러가 발생했던 것 같은데, 0.45.2 버전하면 해결됐다.
 
-# Conclusion
+## Conclusion
 
 ktlint-gradle과 kotlinter-gradle 둘다 사용할 수 있는 플러그인이다. 하지만 ktlint-gradle은 최근(2022.01)에 maintainaner의 리소스 부족 이슈가 있는 듯하다.
 

@@ -15,11 +15,11 @@ Spring Boot는 application properties file (profile이 있거나 혹은 없거�
 
 > 문서를 잘못 읽어서 2시간 정도 헤맸는데, 그 내용도 추가했다 ㅠㅠ
 
-# Cloud Config = Externalized Configuration
+## Cloud Config = Externalized Configuration
 
 property override 관련 내용이 Spring Cloud Config 공식 문서에 있지는 않았다. 그 대신 Spring Cloud Config와 Spring Boot가 어떤 관계로 연결되는지 알아야했다.
 
-## Externalized Configuration
+### Externalized Configuration
 
 구글링을 하다가 StackOverflow에서 Spring Boot의 Externalized Configuration 키워드에 대해 알게 되었다. 해당 페이지에서는 spring.profiles.active에 여러 개의 profile이 주어졌을 떄, **어떤 profile이 최종적으로 적용되는지**에 대한 Q&A가 있었다.
 
@@ -55,7 +55,7 @@ Spring Boot 문서를 참고했을 때, Config data files(properties 혹은 yaml
 > 
 > 번역: `.properties` 혹은 `.yml` 파일  포맷 하나만 사용할 것을 권장하지만, 혹시 둘다 존재하면 `.properties` 포맷의 우선순위가 더 높다.
 
-## Cloud config property가 override 하지 않게 (Local property가 override되게)
+### Cloud config property가 override 하지 않게 (Local property가 override되게)
 
 앞에서 언급한 "삽질"이 여기이다. 본인의 예상과 반대로, cloud config에서 정의된 property들이 기본적으로 더 높은 우선순위를 가지고 있었다. 그럼 이 우선순위가 어떻게 바뀐걸까? 별도의 설정이 있었던 것이다.
 
@@ -89,7 +89,7 @@ Spring Boot 문서를 참고했을 때, Config data files(properties 혹은 yaml
 
 > 문서에 override-none, overrideNone 두 개가 혼재되어 있으나, 어느 쪽이든 적용 가능할 것이다.
 
-# Conclusion
+## Conclusion
 
 properties 파일들과 같은 여러 개의 configuration이 주어졌을 때 어떤 것이 더 높은 우선순위를 가지는가? 아래 페이지를 참고하자.
 
@@ -97,7 +97,7 @@ properties 파일들과 같은 여러 개의 configuration이 주어졌을 때 �
 
 Cloud config에서 import된 properties는 기본적으로 jar 파일 내부에 존재하는 properties 파일보다 더 높은 우선순위를 가진다. 그러나, remote repository에 `override-none` property를 `true`로 설정함으로써, 최하위의 우선순위를 가지도록 변경할 수 있다.
 
-# References
+## References
 
 - Spring Cloud properties: <https://docs.spring.io/spring-cloud/docs/2021.0.5/reference/html/configprops.html>
 - 그 외 본문 내 링크들

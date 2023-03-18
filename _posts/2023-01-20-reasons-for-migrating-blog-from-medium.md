@@ -13,7 +13,7 @@ redirect_from:
 
 그리고 2023년 1월 현재, github.io로 블로그를 이사왔다. Medium이 불편하지 않았다면, 당연히 블로그 이사를 하지 않았을 것이다. 트리거는 포스트들이 Google에 너무 오랫동안 인덱싱되지 않는 것이었다. 그래서 이사했다.
 
-# 블로그 플랫폼 이사의 역사
+## 블로그 플랫폼 이사의 역사
 
 > 나는 Tistory, GitHub Pages, Medium. 이렇게 3가지 플랫폼을 사용하였다.
 
@@ -24,22 +24,22 @@ redirect_from:
 - Medium (2021.01~2022.11): <https://hojongs.medium.com/>
 - 그리고 현재, 다시 GitHub Pages (2023.01~): <https://hojongs.github.io/>
 
-## 블로그 플랫폼 이사를 다닌 이유
+### 블로그 플랫폼 이사를 다닌 이유
 
 > 사실 이사는 아니었고, 블로그하다가, 쉬다가, 새로 시작을 반복했었다.
 
 (쓰다보니까 말이 많아지는데, Medium을 버리고 이사한 이유는 다음 섹션에 작성하겠다.)
 
-### Since 2015, Tistory
+#### Since 2015, Tistory
 
 Tistory에서 왜 이사했나?를 리마인드해보자. 사실 이 때 글들을 보면 블로그라기보단 거의 메모장이다. 글 하나가 3줄인데 광고까지 붙여놨다.
 
-### Since 2019, GitHub Page에서 새로 시작
+#### Since 2019, GitHub Page에서 새로 시작
 
 아무튼, 이 때는 이사를 한 건 아니고 그냥 새로 시작했다. Tistory는 그냥 공개 메모장이었고, 이제 본격적으로 개발자 테크 블로그를 써보겠다고 다짐했다. 그래서 좀더 개발자답게(?) 코드로 설정하고 커밋해야하는 GitHub Page를 선택했던 것 같다.  
 ~~그런데 이제보니까 2달 밖에 글을 안썼네.~~
 
-### Since 2021, 긴 고민 끝에, Medium에서 새로 시작
+#### Since 2021, 긴 고민 끝에, Medium에서 새로 시작
 
 > 가장 사용하기 쉽고 블로그 통계 기능까지 제공해주는 Medium을 선택했다. Google indexing이 알아서 잘 해줄 것이라는 기대도 이유 중 하나였다.
 
@@ -67,7 +67,7 @@ github 로그인 연동도 되고 markdown을 지원하고 UI가 마음에 들�
 
 그렇게, 본격적인 테크 블로그 기준으로 Medium을 가장 오래 써오고 있었다.
 
-# 그래서 이사간 이유는?
+## 그래서 이사간 이유는?
 
 포스트를 publish한지 수 개월이 지나도, Google에서 글이 검색되지 않았다. 더 옛날 글들 중 일부는 Google에 노출이 되었는데, 조회 수가 압도적으로 높았다. 이해가 되지 않아서 Medium에 문의했고, 아래와 같은 답변을 받았다.
 
@@ -116,14 +116,14 @@ Medium 측은 내 글이 아닌 당근마켓 글을 Medium에서 검색하며 "�
 - Medium 글을 많이 읽으면 돈을 내야한다.
 - Markdown이나 Notion 글을 Medium에 복붙하는 게 사실상 불가능헀다. 이미지를 복붙하면 글에서 에러가 났다.
 
-## 왜 GitHub Page로?
+### 왜 GitHub Page로?
 
 블로그를 운영하면서 내가 가장 원했던 기능은 통계 기능이었다. GitHub Page를 사용하면 통계 기능은 포기해야 하는 줄 알았는데, Google Analytics를 붙이면 되는 일이었다.
 
 Medium은 Google Search Console에서 테스트하거나 조작할 수가 없어서 답답했다. GitHub Page는 내가 다 설정해야 했지만 내가 다 제어할 수 있었다. 더이상 답답하고 싶지 않았다.  
 그래서 다시 GitHub Page로 돌아왔다.
 
-# Conclusion
+## Conclusion
 
 Medium은 기대와는 다르게 내 글들이 Google에 아예 노출되지 않고, 고객상담 품질은 악몽이었다. 지금은 GitHub Page에 댓글 기능과 GA(Google Analytics)까지 잘 붙여서 너무 편안하다.
 

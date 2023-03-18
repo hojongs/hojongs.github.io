@@ -9,7 +9,7 @@ redirect_from:
 
 웹브라우저에서 google.com 접속을 시도하면, DNS query를 통해 해당 도메인의 IP 정보를 획득하여 요청을 보낸다는 것은 대부분 알고 있을 것이다. 하지만, 그것은 DNS의 빙산의 일각일 뿐이다. DNS에 대해 조금더 깊이 알아보자.
 
-# Motivation
+## Motivation
 
 DNS 장애는 꽤나 무서운 일이다. 장애가 한 번 발생되면 DNS 레코드가 수많은 네임 서버들에 전파되고 캐시되기 때문에 장애가 해결될 때까지 지켜보고만 있어야할 수도 있다. 어쨌든 장애 조치는 취해야 하는데, 조치를 취하려면 DNS에 대한 제대로된 이해가 필요하다. 예를 들면 이런 것들이다.
 
@@ -22,13 +22,13 @@ DNS 장애는 꽤나 무서운 일이다. 장애가 한 번 발생되면 DNS 레
 
 위와 같은 의문들을 해결해보고자 한다.
 
-# What is DNS?
+## What is DNS?
 
 AWS에 DNS 기초에 대한 좋은 문서가 있었다.
 
 <https://aws.amazon.com/ko/route53/what-is-dns/>
 
-## DNS service types & How DNS works
+### DNS service types & How DNS works
 
 일반적으로 스마트폰, PC에서 DNS query를 요청하면 어디로 요청을 보내는걸까? 먼저 위 문서에 언급된 DNS 서비스 유형에 대해 알아보자
 
@@ -49,7 +49,7 @@ AWS에 DNS 기초에 대한 좋은 문서가 있었다.
 
 즉, .com TLD name server는 example.com 도메인의 authoritative server의 도메인 주소를 알고 있고 이를 응답한다는 것이다.
 
-## Domain name registry?
+### Domain name registry?
 
 상위 name server는 하위 name server의 도메인 주소를 어떻게 아는 것일까? 예를 들어 설명하면 다음과 같다.
 
@@ -70,7 +70,7 @@ dig site NS
 whois site
 ```
 
-# Conclusion
+## Conclusion
 
 글이 너무 길어질까봐 이번 글은 여기서 마치고, 나머지 의문들에 대한 답들은 다른 글들에서 작성할 예정이다.
 
@@ -85,6 +85,6 @@ whois site
 - DNS query의 negative cache란 무엇인가?
 - nslookup, dig, whois command의 사용법 및 결과값 이해
 
-## Additional references
+### Additional references
 
 <https://ns1.com/resources/dns-propagation>

@@ -14,7 +14,7 @@ Spring Cloud Config는 분산 시스템에서 통합 설정을 중앙화하여 �
 
 > 이 문서는 client-side 사용법을 중점적으로 다룬다.
 
-# What is Spring Cloud Config? How to use it?
+## What is Spring Cloud Config? How to use it?
 
 Spring Cloud Config의 핵심 포인트들에 대해 먼저 이해하고 가자. 어느 use case들에 사용해야 하는지도 생각해보자.
 
@@ -30,7 +30,7 @@ Spring 계열이다보니 Spring 서버에서만 사용할 수 있다고 오해�
 
 Enterprise 서버들은 개발 환경부터 production 환경까지 여러 환경들이 있다. 보통 이런 환경들은 공유하는 공통 설정들이 있다. "여러 분산 서비스들이" "여러 환경에 걸쳐" 설정을 공유하는 케이스에도 Cloud config가 매우 유용하다.
 
-# Cloud Config server API 호출 방법
+## Cloud Config server API 호출 방법
 
 Spring Cloud Config는 Server와 Client로 나뉜다. 예제 서버는 아래 주소에 있다.  
 <https://github.com/spring-cloud/spring-cloud-config/tree/v4.0.0/spring-cloud-config-server>
@@ -67,7 +67,7 @@ curl localhost:8888/master/foo-db.properties
 
 편의에 따라, properties format 또는 yml format으로 응답값을 받을 수 있다.
 
-# Cloud config client 설정 방법
+## Cloud config client 설정 방법
 
 보통은 Spring boot 서버가 cloud config client가 될 것이다. Spring 서버에 아래 의존성을 추가하자.
 
@@ -81,7 +81,7 @@ dependencies {
 별도 설정을 추가하지 않으면 `localhost:8888`을 cloud config server 주소 기본값으로 사용할 것이다. 아래 설정을 추가하자. cloud config server의 주소가 `myconfigserver.com`일 경우이다. (아래 설정은 필수다)
 
 ```properties
-# application.properties
+## application.properties
 spring.config.import=optional:configserver:http://myconfigserver.com
 ```
 
@@ -100,7 +100,7 @@ application name의 기본값은 `application`이다. 바꾸려면 아래와 같
 spring.application.name=myapp
 ```
 
-## Legacy bootstrap way
+### Legacy bootstrap way
 
 Spring cloud config 옛날 버전 시절에 설정된 서버의 경우, cloud config client가 bootstrap 방식으로 설정되어 있을 수 있다. 자세한 내용은 아래 문서를 참고하면 된다.
 
@@ -108,13 +108,13 @@ Spring cloud config 옛날 버전 시절에 설정된 서버의 경우, cloud co
 
 <https://docs.spring.io/spring-cloud-config/docs/4.0.0/reference/html/#config-first-bootstrap>
 
-## Non-Spring cloud config client
+### Non-Spring cloud config client
 
 이건 특별할 것이 없다. 앞서 언급한대로, Cloud config server API path에 맞춰 요청 시 cloud config를 조회할 수 있다.
 조회한 값을 해당 Non-Spring application에서 사용하면 된다.
 
 이는 다음과 같은 경우에 유용하다. Spring application에 의존하지 않는 테스트 코드를 작성하거나, 스크립트 파일을 작성 시 (어떤 언어로 작성된 스크립트든) cloud-config의 값을 조회해서 활용할 수 있다.
 
-# Conclusion
+## Conclusion
 
 틀린 내용이나 궁금한 내용이 있으면, 댓글로 남겨주시길.

@@ -5,7 +5,7 @@ categories: [Server development]
 tags: [Spring Boot, Kotlin]
 ---
 
-# Access environment variables within Spring Boot
+## Access environment variables within Spring Boot
 
 Spring에서 개발할 때, 환경변수에 접근하는 방법은 여러 가지가 있다. `System.getenv()` 등등.
 
@@ -17,7 +17,7 @@ Spring에서 개발할 때, 환경변수에 접근하는 방법은 여러 가지
 
 하지만 경우에 따라 `@Value` 어노테이션에서 환경변수를 주입받는 방법을 알아두는 것도 유용할 것이다.
 
-# 환경변수 `@Value` 어노테이션에서 주입받기 (How to inject environment variable to `@Value` annotation)
+## 환경변수 `@Value` 어노테이션에서 주입받기 (How to inject environment variable to `@Value` annotation)
 
 <https://stackoverflow.com/a/14617182/12956829>
 
@@ -40,7 +40,7 @@ class SomeClass(
 }
 ```
 
-## `@Value` 어노테이션 환경변수 & 기본값 (default value)
+### `@Value` 어노테이션 환경변수 & 기본값 (default value)
 
 ```kotlin
 class SomeClass(
@@ -53,7 +53,7 @@ class SomeClass(
 
 > Kotlin에서 `@Value` 값에 `$` 사용 시에는 `\$`로 입력해야 함을 주의
 
-## 동작원리: `@Value` and SpEL
+### 동작원리: `@Value` and SpEL
 
 `#{ <expression string> }`의 표현식은 SpEL (Spring Expression Language)의 문법이다. `@Value` 어노테이션의 값에 SpEL을 사용할 수 있는 것이다.
 
@@ -65,7 +65,7 @@ SpEL
 - <https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#expressions>
 - <https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#expressions-beandef>
 
-# 환경변수 application.properties에서 주입받기 (How to inject environment variable to `@Value` annotation)
+## 환경변수 application.properties에서 주입받기 (How to inject environment variable to `@Value` annotation)
 
 <https://www.baeldung.com/spring-boot-properties-env-variables>
 

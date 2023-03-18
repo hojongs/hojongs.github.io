@@ -16,13 +16,13 @@ File system watching:
 
 incremental build: <https://docs.gradle.org/current/userguide/more_about_tasks.html#sec:up_to_date_checks>
 
-# File system watching and Gradle versions
+## File system watching and Gradle versions
 
 - Gradle 6.5 → experimental
 - Gradle 6.7 → stable (but disabled by default yet)
 - Gradle 7.0 → enabled by default
 
-# How to work file system watching
+## How to work file system watching
 
 - Gradle이 task 실행 여부를 결정하려면 지난 build로부터 input/output 파일이 변경되었는지 확인해야 함
 - Gradle daemon은 현재 빌드가 끝날 때까지의 파일 시스템 정보를 메모리에 저장함 -> 이게 바로 Gradle의 virtual file system
@@ -32,23 +32,23 @@ incremental build: <https://docs.gradle.org/current/userguide/more_about_tasks.h
   -> file system의 변경사항을 watch함
   -> virtual file system에 저장된 정보 중 변경되지 않은 파일을에 대한 부분은 재활용할 수 있음 -> Disk I/O를 수행하지 않음
 
-# How to enable file system watching
+## How to enable file system watching
 
 ```shell
 ./gradlew build --watch-fs
 
-# to disable
+## to disable
 ./gradlew build --no-watch-fs
 ```
 
 or
 
 ```properties
-# Gradle>=6.7
+## Gradle>=6.7
 org.gradle.vfs.watch=true
 ```
 
-## Enable verbose logging
+### Enable verbose logging
 
 ```properties
 org.gradle.vfs.verbose=true
@@ -58,7 +58,7 @@ org.gradle.vfs.verbose=true
 ./gradlew build -Dorg.gradle.vfs.verbose=true
 ```
 
-# Reference
+## Reference
 
 - <https://docs.gradle.org/current/userguide/file_system_watching.html>
 - <https://blog.gradle.org/introducing-file-system-watching>

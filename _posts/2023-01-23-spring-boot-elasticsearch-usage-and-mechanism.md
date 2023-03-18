@@ -10,7 +10,7 @@ redirect_from:
 Spring ecosystem에는 대부분의 외부 시스템을 위한 모듈이 있다. Elasticsearch도 마찬가지다. Elasticsearch를 위한 Spring Boot와 Spring Data에 대하여 알아본다.  
 추가로, 본인이 회사 업무에서 마주했던 use case들도 작성해보았다.
 
-# Spring boot starter data elasticsearch
+## Spring boot starter data elasticsearch
 
 Spring 애플리케이션에 Elasticsearch client를 가장 간단하게 구현하는 방법은 Spring Boot Starter Data Elasticsearch를 사용하는 것이다.
 
@@ -26,7 +26,7 @@ Spring 애플리케이션에 Elasticsearch client를 가장 간단하게 구현�
 - ReactiveElasticsearchClient (Spring data elasticsearch)  
   `org.springframework.data:spring-data-elasticsearch`
 
-## Usage
+### Usage
 
 의존성을 추가한다.
 
@@ -46,7 +46,7 @@ spring.elasticsearch.username=user
 spring.elasticsearch.password=secret
 ```
 
-### Customize RestClient
+#### Customize RestClient
 
 `elasticsearch-rest-client` 의존성이 classpath에 존재하면, RestClient bean이 auto-configure 된다. RestClient bean을 설정하려면 `RestClientBuilderCustomizer` bean을 등록하면 된다.
 
@@ -70,7 +70,7 @@ class ElasticsearchConfig {
 }
 ```
 
-#### RestClientBuilderCustomizer vs RestClientBuilder
+##### RestClientBuilderCustomizer vs RestClientBuilder
 
 개인적으로, `RestClientBuilderCustomizer`는 추상화가 실패했다고 생각한다. 사용해보면서 결국 내부 구현을 이해해야 했기 때문이다.
 RestClientBuilderCustomizer bean을 사용 시 경우에 따라, spring.elasticsearch.* property들이 적용되지 않는다는 사실을 알아야 했다.
@@ -93,7 +93,7 @@ Spring boot 2.4: <https://github.com/spring-projects/spring-boot/blob/v2.4.13/sp
 
 > 구현은 거의 동일하지만 파일 이름과 위치가 달라서 별도로 링크를 남겼다.
 
-### Auto-configure Sniffer
+#### Auto-configure Sniffer
 
 `elasticsearch-rest-client-sniffer` 의존성이 classpath에 존재하면, Sniffer bean이 auto-configure 된다. Sniffer는 자동으로 ES cluster에서 node들을 discover하기 위해 사용되며, RestClient에 설정된다. 아래 property들은 Sniffer를 설정한다.
 
@@ -102,7 +102,7 @@ spring.elasticsearch.restclient.sniffer.interval=10m
 spring.elasticsearch.restclient.sniffer.delay-after-failure=30s
 ```
 
-### Auto-configure Elasticsearch client
+#### Auto-configure Elasticsearch client
 
 ElasticsearchClient bean도 마찬가지로, `co.elastic.clients:elasticsearch-java` 의존성이 classpath에 존재하면 auto-configure 된다.
 ElasticsearchClient bean은 내부적으로 위에서 설명한 RestClient bean을 사용한다.
@@ -119,12 +119,12 @@ class ElasticsearchConfig {
 }
 ```
 
-## Elasticsearch with Spring Data
+### Elasticsearch with Spring Data
 
 ElasticsearchClient bean이 등록되어 있으면 `ElasticsearchTemplate` bean도 auto-configure 된다.
 `ElasticsearchTemplate`의 reactive 버전으로서, `spring-data-elasticsearch`과 `reactor`가 classpath에 존재할 경우 `ReactiveElasticsearchClient`과 `ReactiveElasticsearchTemplate` 클래스가 bean으로 auto-configure 된다.
 
-## Elasticsearch with Spring Data Repository
+### Elasticsearch with Spring Data Repository
 
 `@Document` 어노테이션이 붙은 클래스가 존재한다면, 해당 엔티티에 대한 Spring Data Repository가 auto-configure 된다. 이 repository를 사용하지 않을 경우, 아래 property를 통해 auto-configure 되지 않도록 할 수 있다. (사실 repository를 사용하지 않으면 `@Document` 어노테이션을 사용할 일도 없을 것 같다.)
 
@@ -137,14 +137,14 @@ spring.data.elasticsearch.repositories.enabled=false
 
 > 보통은 Spring data elasticsearch 4.x를 사용하고 있을 것이다. 아래 내용은 5.0을 기준으로 작성하였으니, 유의해야 한다.
 
-# Spring Data Elasticsearch
+## Spring Data Elasticsearch
 
-## Spring Data Elasticsearch version compatibility
+### Spring Data Elasticsearch version compatibility
 
 Spring Data Elasticsearch를 사용할 때는 Elasticsearch server 버전 사이 호환성을 잘 확인해야 한다.  
 <https://docs.spring.io/spring-data/elasticsearch/docs/5.0.1/reference/html/#preface.versions>
 
-## ClientConfiguration bean
+### ClientConfiguration bean
 
 Spring boot에서는 property들로 설정하지만, Spring data elasticsearch에서는 RestClient를 위해 ClientConfiguration bean을 등록해야 한다.  
 <https://docs.spring.io/spring-data/elasticsearch/docs/5.0.1/reference/html/#elasticsearch.clients.restclient>
@@ -152,7 +152,7 @@ Spring boot에서는 property들로 설정하지만, Spring data elasticsearch�
 그러면 3개의 bean이 auto-configure 된다: ElasticsearchOperations, ElasticsearchClient, RestClient.
 이 ClientConfiguration bean은 reactive bean들을 설정할 때도 공통적으로 쓰인다.
 
-## Spring data elasticsearch 5.x vs 4.x
+### Spring data elasticsearch 5.x vs 4.x
 
 하지만 이건 Spring Data Elasticsearch 5.0부터 변경된 사항이고, 4.4.7 문서를 보면 사용법이 다르다.  
 <https://docs.spring.io/spring-data/elasticsearch/docs/4.4.7/reference/html/#reference>
@@ -162,7 +162,7 @@ Spring boot에서는 property들로 설정하지만, Spring data elasticsearch�
 > Elasticsearch Java High-level REST client는 deprecated 되었디.
 > https://www.elastic.co/guide/en/elasticsearch/client/java-rest/7.17/java-rest-high.html
 
-## Spring boot 버전과 Spring data elasticsearch 버전 관계
+### Spring boot 버전과 Spring data elasticsearch 버전 관계
 
 막상 5.0을 기준으로 내용을 작성하고 보니, 현재 production에서 사용되고 있는 버전은 대부분 4.x일 것이라는 생각이 들었다. 그 이유를 조금 살펴보려 한다.
 
@@ -172,18 +172,18 @@ Spring boot 2.7.8에서는 Spring data elasticsearch 4.4.7을 사용하고 있�
 Spring boot 3.0은 Java 17이 최소 요구사항이기 때문에, production에서 사용하기에는 꽤나 geek하다. (risky하다)  
 <https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.0-Release-Notes>
 
-## `@Document`: createIndex=true (default)
+### `@Document`: createIndex=true (default)
 
 `@Document` 어노테이션이 붙은 클래스가 존재할 경우, createIndex=true임에 주의해야 한다.  
 <https://docs.spring.io/spring-data/elasticsearch/docs/5.0.1/reference/html/#elasticsearch.repositories.autocreation>
 
 Spring 애플리케이션이 실행될 때마다 자동으로 document 이름의 ES index가 생성될 수 있다.
 
-# Use cases
+## Use cases
 
 본인이 현재 회사의 업무동안 Spring Data Elasticsearch를 다루면서 마주했던 사례들을 추가로 다뤄보려 한다.
 
-## Spring Data Elasticsearch with Multi-clusters
+### Spring Data Elasticsearch with Multi-clusters
 
 일반적으로 Elasticsearch client는 하나만 요구한다. Single ES cluster에 연결하기 때문이다.
 
@@ -195,7 +195,7 @@ Spring 애플리케이션이 실행될 때마다 자동으로 document 이름의
 
 여담으로, 각 client build 시 설정이 적용된 RestClientBuilder를 정의하고 재사용할 수가 없다는 번거로움이 있었다. RestClient builder 인터페이스 상 builder 인스턴스 생성 후 uri를 변경할 수 없었기 떄문이다. (builder 생성자에서 uri를 파라미터로 받는다)  
 
-## Elasticsearch 트래픽 전환과 connection TTL (Active-active)
+### Elasticsearch 트래픽 전환과 connection TTL (Active-active)
 
 회사 DevOps 팀에서 DC(Data center) 자체를 Active-active로 구성해놓았기 때문에 우리는 언제든지 ES cluster 1에서 cluster 2로 트래픽을 전환할 수 있다.
 Active-active infra architecture 구성에 대해서는 아래 영상에서 잘 설명해주고 있다.  
@@ -226,6 +226,6 @@ RestClient 내부적으로 사용하는 Apache HttpAsyncClient에서 connection 
 
 이와 관련하여 좀더 별도로 포스트를 작성하였다: [애플리케이션 서버 HTTP Client에 도메인 IP 변경 전파하는 방법](https://hojongs.github.io/posts/how-to-propagate-elasticsearch-domain-ip-change-to-application-http-client/)
 
-# Conclusion
+## Conclusion
 
 Elasticsearch 관련 Spring boot, Spring data 사용법과 몇몇 트러블슈팅 사례를 공유했다. 추가적으로 실제 업무에서 Spring data elasticsearch 관련 약간 더 깊은 수준의 사례들을 공유해보았다.

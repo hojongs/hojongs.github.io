@@ -2,7 +2,7 @@
 layout: post
 title: "Spring: 환경변수를 @Value 어노테이션, application.properties에서 주입받기"
 categories: [Server development]
-tags: [Spring Boot]
+tags: [Spring Boot, Kotlin]
 ---
 
 # Access environment variables within Spring Boot
@@ -50,6 +50,8 @@ class SomeClass(
     ....
 }
 ```
+
+> Kotlin에서 `@Value` 값에 `$` 사용 시에는 `\$`로 입력해야 함을 주의
 
 ## 동작원리: `@Value` and SpEL
 

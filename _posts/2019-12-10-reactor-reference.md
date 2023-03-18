@@ -4,7 +4,7 @@ title: Reactor Reference Reading
 categories: [Server development]
 tags: [Spring Webflux, Reactor, Reactive streams, Java]
 redirect_from:
-  - /reactor-reference/
+  - /posts/reactor-reference/
   - /2019/12/10/reactor-reference.html
 ---
 

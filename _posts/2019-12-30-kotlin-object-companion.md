@@ -4,7 +4,7 @@ title: Kotlin Object, Companion Object, Anonymous Object
 categories: [Server development]
 tags: [Kotlin]
 redirect_from:
-  - /kotlin-object-companion/
+  - /posts/kotlin-object-companion/
   - /2019/12/30/kotlin-object-companion.html
 ---
 

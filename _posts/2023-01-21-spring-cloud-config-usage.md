@@ -3,6 +3,8 @@ layout: post
 title: "Spring Cloud Config: 사용법 소개"
 categories: [Server development]
 tags: [Spring Cloud, Spring Cloud Config, Microservices]
+redirect_from:
+  - /posts/spring-cloud-config-usage/
 ---
 
 Spring Cloud Config는 분산 시스템에서 통합 설정을 중앙화하여 관리할 수 있게 해주는 시스템이다. 보통 여러 개의 Microservice들이 모여 하나의 Application을 구성하는 MSA에 적합한 도구다. 간단한 사용법을 살펴보자.

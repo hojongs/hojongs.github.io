@@ -4,7 +4,7 @@ title: 기술 블로그 시작
 categories: [Random]
 tags: []
 redirect_from:
-  - /hello-world/
+  - /posts/hello-world/
   - /2019/12/10/hello-world.html
 ---
 

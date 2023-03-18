@@ -3,6 +3,8 @@ layout: post
 title: Medium 블로그에서 이사온 이유, 블로그 플랫폼 비교
 categories: [Random]
 tags: []
+redirect_from:
+  - /posts/reasons-for-migrating-blog-from-medium/
 ---
 
 왜 2년동안 사용하던 Medium을 버리고 github.io로 이사온 이유를 개발자로서 이야기하려 한다.

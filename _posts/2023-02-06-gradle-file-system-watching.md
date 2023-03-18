@@ -3,6 +3,8 @@ layout: post
 title: "Gradle file system watching: 동작방식 및 사용법"
 categories: [Server development]
 tags: [Gradle, Productivity]
+redirect_from:
+  - /posts/gradle-file-system-watching/
 ---
 
 File system watching:

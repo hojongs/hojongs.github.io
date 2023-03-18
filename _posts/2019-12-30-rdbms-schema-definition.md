@@ -4,7 +4,7 @@ title: RDBMS Schema란 무엇인가
 categories: [Database]
 tags: [Kotlin, Flyway, Exposed(Kotlin)]
 redirect_from:
-  - /rdbms-schema-definition/
+  - /posts/rdbms-schema-definition/
   - /2019/12/30/rdbms-schema-definition.html
 ---
 

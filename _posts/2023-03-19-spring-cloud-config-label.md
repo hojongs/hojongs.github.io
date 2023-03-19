@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Spring Cloud Config: Label 사용하여 특정 branch의 config 사용하기"
+title: "Spring Cloud Config: Label 사용하여 특정 Git branch의 config 사용하기"
 categories: [Server development]
 tags: [Spring Cloud, Spring Boot]
 ---

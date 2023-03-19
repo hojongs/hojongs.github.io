@@ -50,3 +50,12 @@ spring.cloud.config.label=master
 
 dev 환경에서 테스트가 완료된 후 develop 브랜치의 변경사항을 master 브랜치에 merge한다. 이후에 배포되는 prod 애플리케이션 서버들도 이제 설정값의 변경사항에 영향받게 될 것이다. 정상적으로 테스트하였다면 dev와 동일하게 의도대로 동작할 것이다.
 
+## Get config URL path
+
+아래와 같이 앞에 `/{label}` path prefix를 추가해주면 된다.
+
+`{cloud-config-server-baseurl}/{label}/{application}-{profile}.properties`
+
+이 외에도 여러 가지 방법이 있는데, 아래의 이전 포스트를 참고하면 된다.
+
+[Spring Cloud Config: 사용법 소개](/spring-cloud-config-usage/)

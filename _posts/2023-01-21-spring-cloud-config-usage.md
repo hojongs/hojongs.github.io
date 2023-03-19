@@ -32,8 +32,11 @@ Enterprise 서버들은 개발 환경부터 production 환경까지 여러 환�
 
 ## Cloud Config server API 호출 방법
 
-Spring Cloud Config는 Server와 Client로 나뉜다. 예제 서버는 아래 주소에 있다.  
-<https://github.com/spring-cloud/spring-cloud-config/tree/v4.0.0/spring-cloud-config-server>
+Spring Cloud Config는 Server와 Client로 나뉜다. 예제 서버는 아래 주소에 있다.
+
+Sping Cloud Config example source code: <https://github.com/spring-cloud/spring-cloud-config/tree/v4.0.0/spring-cloud-config-server>
+
+example의 config 저장소: <https://github.com/spring-cloud-samples/config-repo>
 
 Cloud config server를 배포한 후, 아래와 같이 요청을 보내면 응답을 받을 수 있다.
 

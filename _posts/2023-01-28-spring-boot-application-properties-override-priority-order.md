@@ -43,6 +43,8 @@ Spring Boot 문서를 참고했을 때, Config data files(properties 혹은 yaml
 > 3. Application properties outside of your packaged jar (application.properties and YAML variants).
 > 4. Profile-specific application properties outside of your packaged jar (application-{profile}.properties and YAML variants).
 
+> resources 디렉토리에 있는 `application-dev.properties`와 같은 파일들은 Profile-specific application properties들이다. resources 디렉토리 안에 있는 properties 파일들은 jar 파일에 함께 package되지만 externalized configuration이라고 부른다. (애초에 모든 configuration들이 externalized 되어있다.)
+
 사례 별로 살펴보면 아래와 같다:
 
 - application.properties vs application-{profile}.properties: `application-{profile}.properties` 파일이 override한다.

@@ -5,8 +5,14 @@ permalink: /robots.txt
 
 User-agent: *
 
-Allow: /posts/
+Allow: /*/
 Disallow: /norobots/
-Disallow: *
+Disallow: *.html
+Disallow: *.js
+Disallow: *.png
+Disallow: *.png
+Disallow: *.css
+Disallow: *.ico
+Disallow: /assets
 
 Sitemap: {{ '/sitemap.xml' | absolute_url }}

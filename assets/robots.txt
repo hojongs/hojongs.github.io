@@ -5,6 +5,7 @@ permalink: /robots.txt
 
 User-agent: *
 
+Allow: /
 Allow: /*/
 Disallow: /norobots/
 Disallow: *.html

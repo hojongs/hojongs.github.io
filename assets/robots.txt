@@ -5,11 +5,8 @@ permalink: /robots.txt
 
 User-agent: *
 
+Allow: /posts/
 Disallow: /norobots/
-Disallow: /tags/
-Disallow: /categories/
-Disallow: /page*/
-Disallow: /google*.html
-Disallow: /naver*.html
+Disallow: *
 
 Sitemap: {{ '/sitemap.xml' | absolute_url }}

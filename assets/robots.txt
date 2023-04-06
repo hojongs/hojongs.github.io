@@ -7,6 +7,8 @@ User-agent: *
 
 Allow: /
 Allow: /*/
+Allow: sitemap.xml
+Allow: feed.xml
 Disallow: /norobots/
 Disallow: *.html
 Disallow: *.js

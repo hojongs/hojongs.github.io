@@ -6,6 +6,7 @@ tags: [Kotlin]
 redirect_from:
   - /posts/kotlin-object-companion/
   - /2019/12/30/kotlin-object-companion.html
+permalink: /kotlin-object-companion/
 ---
 
 - 아래 Kotlin 공식 문서에서 관련 내용을 찾을 수 있었다

@@ -5,6 +5,7 @@ categories: [Server development]
 tags: [DNS, Network]
 redirect_from:
   - /posts/how-dns-works/
+permalink: /how-dns-works/
 ---
 
 웹브라우저에서 google.com 접속을 시도하면, DNS query를 통해 해당 도메인의 IP 정보를 획득하여 요청을 보낸다는 것은 대부분 알고 있을 것이다. 하지만, 그것은 DNS의 빙산의 일각일 뿐이다. DNS에 대해 조금더 깊이 알아보자.

@@ -6,6 +6,7 @@ tags: [AWS, EC2, VPC]
 redirect_from:
   - /posts/aws-ec2-free-tier-ubuntu/
   - /2020/01/24/aws-ec2-free-tier-ubuntu.html
+permalink: /aws-ec2-free-tier-ubuntu/
 ---
 
 ## Introduction

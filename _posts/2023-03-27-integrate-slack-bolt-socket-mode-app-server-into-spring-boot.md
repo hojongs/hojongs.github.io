@@ -3,6 +3,9 @@ layout: post
 title: "Slack Bolt: Socket Mode App Server를 Spring Boot로 통합하기"
 categories: [Server development]
 tags: [Slack Bolt, Spring Boot]
+redirect_from:
+  - /posts/integrate-slack-bolt-socket-mode-app-server-into-spring-boot/
+permalink: /integrate-slack-bolt-socket-mode-app-server-into-spring-boot/
 ---
 
 ## Slack app server를 개발하고 싶다. 안전하게.

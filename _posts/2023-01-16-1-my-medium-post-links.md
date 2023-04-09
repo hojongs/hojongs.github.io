@@ -4,8 +4,8 @@ title: "My Medium post links"
 categories: [Random]
 tags: []
 redirect_from:
+  - /1-my-medium-post-links.html
   - /2023/01/16/1-my-medium-post-links.html
-  - /posts/1-my-medium-post-links/
 ---
 
 - [Kotlin: 코루틴 vs Suspending function 차이](https://hojongs.medium.com/kotlin-코루틴-vs-suspending-function-차이-e730b85f398e)

@@ -6,6 +6,7 @@ tags: [Database, Identifier]
 redirect_from:
   - /posts/uuid-definition/
   - /2019/12/16/uuid-definition.html
+permalink: /uuid-definition/
 ---
 
 * UUID는 Universally unique identifier의 약자로서, 정보 식별을 위하여 사용되는 식별자이다

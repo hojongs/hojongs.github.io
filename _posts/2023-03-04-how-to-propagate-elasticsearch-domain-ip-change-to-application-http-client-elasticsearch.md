@@ -6,6 +6,7 @@ tags: [Spring Boot, Spring Data, Spring Data Elasticsearch, Elasticsearch, HTTP,
 redirect_from:
   - /posts/how-to-propagate-elasticsearch-domain-ip-change-to-application-http-client/
   - /posts/how-to-propagate-elasticsearch-domain-ip-change-to-application-http-client-elasticsearch/
+permalink: /how-to-propagate-elasticsearch-domain-ip-change-to-application-http-client-elasticsearch/
 ---
 
 ## 갑자기 Elasticsearch 도메인의 IP가 바뀐다면?

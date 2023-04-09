@@ -11,11 +11,5 @@ Allow: sitemap.xml
 Allow: feed.xml
 Disallow: /norobots/
 Disallow: *.html
-Disallow: *.js
-Disallow: *.png
-Disallow: *.png
-Disallow: *.css
-Disallow: *.ico
-Disallow: /assets
 
 Sitemap: {{ '/sitemap.xml' | absolute_url }}

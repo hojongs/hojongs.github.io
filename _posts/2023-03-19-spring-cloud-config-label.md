@@ -58,4 +58,4 @@ dev 환경에서 테스트가 완료된 후 develop 브랜치의 변경사항을
 
 이 외에도 여러 가지 방법이 있는데, 아래의 이전 포스트를 참고하면 된다.
 
-[Spring Cloud Config: 사용법 소개](/spring-cloud-config-usage/)
+[Spring Cloud Config: 사용법 소개](/posts/spring-cloud-config-usage/)

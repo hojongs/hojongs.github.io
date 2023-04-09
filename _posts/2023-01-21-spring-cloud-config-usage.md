@@ -111,7 +111,7 @@ Spring cloud config 옛날 버전 시절에 설정된 서버의 경우, cloud co
 
 <https://docs.spring.io/spring-cloud-config/docs/4.0.0/reference/html/#config-first-bootstrap>
 
-Spring Cloud Bootstrap에 대한 자세한 내용은 [여기로](/spring-cloud-what-is-bootstrap/)
+Spring Cloud Bootstrap에 대한 자세한 내용은 [여기로](/posts/spring-cloud-what-is-bootstrap/)
 
 ### Non-Spring cloud config client
 

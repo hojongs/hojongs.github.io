@@ -23,7 +23,7 @@ Istio proxy가 자동으로 span을 보내지만 이 span들을 단일 trace로 
 
 요청으로 들어온 header들을 수집하고 이 요청 중에 외부 요청이 발생하면 그 헤더들을 전달해야 함
 
-어떤 헤더를 사용할 것인지는 사용할 trace backend에 따라 다름 (e.g. Zipki, Jaeger, ...)
+어떤 헤더를 사용할 것인지는 사용할 trace backend에 따라 다름 (e.g. Zipkin, Jaeger, ...)
 
 ## 헤더
 

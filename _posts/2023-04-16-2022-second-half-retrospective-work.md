@@ -34,11 +34,11 @@ tags: [Retrospective, Career]
 
 돌아보면 조급함을 느낄 것이 없었다. 팀에 도움이 안되는 것은 당연한 것이었고, 나비가 번데기의 시기를 거치듯 온보딩 시기에는 만반의 준비를 하는 것이 최고의 투자였다.
 
-## 피드백, 조심스러움과 과감함 (Corage to fail fast)
+## 피드백, 조심스러움과 과감함 (Courage to fail fast)
 
 신규 입사자는 동료들에게 1.5개월 후, 3개월 후에 한 번씩 피드백을 받을 수 있다. 그 때 받은 피드백들을 한 문장으로 표현해보면 아래와 같다.
 
-> Corage to fail fast: 실패를 너무 두려워하지 말고 빠르게 실패해라.
+> Courage to fail fast: 실패를 너무 두려워하지 말고 빠르게 실패해라.
 
 ref: <https://blog.toss.im/article/core-values-are-evolving>
 
@@ -54,7 +54,7 @@ ref: <https://blog.toss.im/article/core-values-are-evolving>
 
 이 글을 쓰면서 한 가지 생각이 들었다. "나는 지금도 이 가치를 잘 실천하고 있나?"
 
-> NOTE: 물론 Corage to fail fast의 의미가 서비스 장애가 나도 상관없다는 의미는 아니다. 음 좋은 사례들을 참고해보면 좋을 것 같은데, 찾아봐야겠다.
+> NOTE: 물론 Courage to fail fast의 의미가 서비스 장애가 나도 상관없다는 의미는 아니다. 음 좋은 사례들을 참고해보면 좋을 것 같은데, 찾아봐야겠다.
 
 ## 한 가지에 집중하기, 임팩트에 집중하기. (Focus on impact)
 

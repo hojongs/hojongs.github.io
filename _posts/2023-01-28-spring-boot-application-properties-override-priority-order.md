@@ -47,7 +47,7 @@ Spring Boot 문서를 참고했을 때, Config data files(properties 혹은 yaml
 
 - application.properties vs application-{profile}.properties: `application-{profile}.properties` 파일이 override한다.
 - application.properties (서버 자체 정의, 즉 jar 파일 내부에 존재) vs application.properties (Cloud config에서 import, 즉 jar 파일 외부에 존재): **jar 외부인 Cloud config에서 import된 application.properties 파일이 override된다.**
-  > 여기서 삽질을 한참 했는데, 본 포스트 최상단에 써놓은 내용과는 반대이다. 기본적으로 Cloud Config에서 정의된 application.properties 파일이 더 높은 우선순위를 갖는다. 뒤에서 override-none property와 함께 더 설명한다.
+  > 여기서 삽질을 한참 했는데, 기본적으로 Cloud Config Server에 정의된 application.properties 파일이 client-side local properties보다 더 높은 우선순위를 갖는다. 뒤에서 override-none property와 함께 더 설명한다.
 
 아래는 혹시 몰라서 적어둔다.
 

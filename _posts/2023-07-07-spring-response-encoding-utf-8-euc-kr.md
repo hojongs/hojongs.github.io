@@ -5,13 +5,9 @@ categories: [Spring]
 tags: [Kotlin, Spring, Encoding, UTF-8, EUC-KR, KSC5601]
 ---
 
-```
 Keywords: Spring framework, Kotlin, UTF-8, EUC-KR, KSC5601, KS X 1001, HttpMessageConverter, ObjectMapper, JsonSerialize
-```
 
-토스뱅크는 은행으로서 마이데이터 제공자이다. 마이데이터 제공 업무 관련하여 Response DTO의 인코딩에 대해서 알아볼 일이 있었다.
-
-Spring Framework에서 Response DTO를 JSON String & ByteArray로 serialize하는 구조에 대해서 알게 되었다.
+Response DTO의 인코딩에 대해서 알아볼 일이 있었다. Spring Framework에서 Response DTO를 JSON String & ByteArray로 serialize하는 구조에 대해서 알아보게 되었다.
 
 - Response body의 encoding을 customize하려면 어떻게 해야할까?
 - 서버 전체의 encoding을 변경하는 것은 영향 범위가 너무 크다. Response body의 특정 필드의 encoding만 변경할 수 있을까?

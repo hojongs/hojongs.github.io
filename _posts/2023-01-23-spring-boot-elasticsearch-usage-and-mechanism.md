@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Spring Boot + Elasticsearch 사용법 및 동작방식"
-categories: [Server development]
+title: "Spring Boot Elasticsearch 사용법 및 동작방식"
+categories: [Elasticsearch]
 tags: [Spring Data, Elasticsearch, Spring Boot]
 ---
 

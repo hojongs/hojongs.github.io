@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "[TIL] Spring MVC: Multiple ControllerAdvices & Order"
-categories: []
-tags: []
+categories: [Spring MVC]
+tags: [Spring, Spring MVC, TIL, Exception handling]
 ---
 
 ## ControllerAdvice란? 사용 이유?

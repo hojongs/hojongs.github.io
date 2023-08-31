@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Spring Boot: application properties 파일 override, 적용 우선순위 (+ Cloud Config)"
-categories: [Server development]
+categories: [Spring Boot]
 tags: [Spring Boot, Spring Cloud, Spring Cloud Config]
 ---
 

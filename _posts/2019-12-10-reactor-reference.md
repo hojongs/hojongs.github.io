@@ -1,15 +1,15 @@
 ---
 layout: post
 title: Reactor Reference Reading
-categories: [Server development]
-tags: [Spring Webflux, Reactor, Reactive streams, Java]
+categories: [Spring WebFlux]
+tags: [Spring WebFlux, Reactor, Reactive streams, Java]
 redirect_from:
   - /posts/reactor-reference/
   - /2019/12/10/reactor-reference.html
 permalink: /reactor-reference/
 ---
 
-* Spring Webflux에 내장되어 있는 Reactor를 사용하기 위해 Reactor Reference를 읽으면서 공부하게 되었다 
+* Spring WebFlux에 내장되어 있는 Reactor를 사용하기 위해 Reactor Reference를 읽으면서 공부하게 되었다 
 * Reactor는 Rx와 같은 Reactive 패러다임의 구현체이며, Reactive Streams sepc의 구현도 포함하고 있는 Java 라이브러리이다
 * Reactor reference를 읽으면서 공부해보았고, 나름 번역하여 본 글을 작성해보았다
 

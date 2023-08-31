@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Spring Cloud: Bootstrap이란? (bootstrap properties vs application properties)"
-categories: [Server development]
+categories: [Spring Cloud]
 tags: [Spring Cloud, Spring Boot]
 ---
 

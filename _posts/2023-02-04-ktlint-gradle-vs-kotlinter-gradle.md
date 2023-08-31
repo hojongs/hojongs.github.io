@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Ktlint Gradle 플러그인 비교 (ktlint-gradle vs kotlinter-gradle)"
-categories: [Server development]
+categories: [Kotlin]
 tags: [Kotlin, Gradle]
 ---
 

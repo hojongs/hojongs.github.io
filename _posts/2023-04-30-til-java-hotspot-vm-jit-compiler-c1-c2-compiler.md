@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "[TIL] JIT compiler in Java HotSpot VM, and C1 vs C2 compiler mode"
-categories: [Server development]
+categories: [JVM]
 tags: [Java, JVM, JIT, TIL, HotSpot VM, Performance Optimization]
 ---
 

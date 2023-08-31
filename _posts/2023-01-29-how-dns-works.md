@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "DNS 동작 방식 이해"
-categories: [Server development]
-tags: [DNS, Network]
+categories: [Network]
+tags: [DNS, Network, Computer Science]
 redirect_from:
   - /posts/how-dns-works/
 permalink: /how-dns-works/

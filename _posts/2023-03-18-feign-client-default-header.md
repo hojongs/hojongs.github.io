@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Feign: Feign client에 Default header 설정하기 (Request interceptor)"
-categories: [Server development]
+categories: [Feign]
 tags: [Feign]
 ---
 

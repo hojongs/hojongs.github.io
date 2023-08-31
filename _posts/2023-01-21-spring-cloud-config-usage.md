@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Spring Cloud Config: 사용법 소개"
-categories: [Server development]
+categories: [Spring Cloud]
 tags: [Spring Cloud, Spring Cloud Config, Microservices]
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Spring Cloud Config: logback.xml 파일 (plain text non-properties 파일) 제공하기"
-categories: [Server development]
+categories: [Spring Cloud]
 tags: [Spring Cloud, Spring Boot]
 ---
 

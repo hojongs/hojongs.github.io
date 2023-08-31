@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Spring: 환경변수를 @Value 어노테이션, application.properties에서 주입받기"
-categories: [Server development]
-tags: [Spring Boot, Kotlin]
+categories: [Spring]
+tags: [Spring, Kotlin]
 ---
 
 ## Access environment variables within Spring Boot

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Kotlin Object, Companion Object, Anonymous Object
-categories: [Server development]
+categories: [Kotlin]
 tags: [Kotlin]
 redirect_from:
   - /posts/kotlin-object-companion/

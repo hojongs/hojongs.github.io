@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Kotlin에서 Kotlin답게 에러 처리하는 방법 (Advanced Error Handling in Kotlin)"
-categories: [Server development]
+categories: [Kotlin]
 tags: [Kotlin, Error handling, Functional programming, Coroutines, Asynchronous programming, Parellel programming, Kotlin sealed class]
 ---
 

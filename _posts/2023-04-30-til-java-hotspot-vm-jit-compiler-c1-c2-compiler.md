@@ -68,3 +68,9 @@ HotSpot VM에는 2개의 JIT compile 모드가 있다고 한다: C1, C2. C1은 �
 
 > 정말 간단하게 쓰려고 했으나 글이 또 계획보다 길어진 것은 숨길 수 없는 비밀이다...
 여담으로 앞으로는 TIL 포스팅도 가끔씩 해볼 예정이다.
+
+## Read more
+
+위 내용에는 포함되지 않았지만, 추가로 발견한 관련 포스트들도 공유한다.
+
+<https://forums.oracle.com/ords/apexds/post/jvm-c1-c2-compiler-thread-high-cpu-consumption-8752>

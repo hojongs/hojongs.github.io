@@ -3,8 +3,6 @@ layout: post
 title: "Spring Boot + Elasticsearch 사용법 및 동작방식"
 categories: [Server development]
 tags: [Spring Data, Elasticsearch, Spring Boot]
-redirect_from:
-  - /posts/spring-boot-elasticsearch-usage-and-mechanism/
 ---
 
 Spring ecosystem에는 대부분의 외부 시스템을 위한 모듈이 있다. Elasticsearch도 마찬가지다. Elasticsearch를 위한 Spring Boot와 Spring Data에 대하여 알아본다.  

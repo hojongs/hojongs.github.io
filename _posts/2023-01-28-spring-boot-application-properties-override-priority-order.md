@@ -3,8 +3,6 @@ layout: post
 title: "Spring Boot: application properties 파일 override, 적용 우선순위 (+ Cloud Config)"
 categories: [Server development]
 tags: [Spring Boot, Spring Cloud, Spring Cloud Config]
-redirect_from:
-  - /posts/spring-boot-application-properties-override-priority-order/
 ---
 
 회사에서 팀원이 "Cloud config에서 정의된 property를 application.properties 파일로 override 할 수 있나요?"라고 질문했다. 가능하다는 것은 해봐서 알고 있었지만, Spring Cloud config 공식 문서에서 관련 레퍼런스를 본 적은 없었다. 왜 가능한걸까?

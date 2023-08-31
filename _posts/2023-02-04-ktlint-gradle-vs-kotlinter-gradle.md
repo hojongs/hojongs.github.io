@@ -3,8 +3,6 @@ layout: post
 title: "Ktlint Gradle 플러그인 비교 (ktlint-gradle vs kotlinter-gradle)"
 categories: [Server development]
 tags: [Kotlin, Gradle]
-redirect_from:
-  - /posts/ktlint-gradle-vs-kotlinter-gradle/
 ---
 
 Gradle 프로젝트에서 ktlint를 사용할 때는 보통 gradle plugin을 사용한다. ktlint 플러그인 중 가장 많이 사용하는 플러그인 2개 ktlint-gradle, kotlinter-gradle를 소개하고 비교한다.

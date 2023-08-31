@@ -3,8 +3,6 @@ layout: post
 title: "2022년 하반기 회고, Let's focus on impact - 일상편"
 categories: [Random]
 tags: [Retrospective, Life]
-redirect_from:
-  - /posts/2022-second-half-retrospective-daily/
 ---
 
 2022년 7월 11일 이직 후 벌써 6개월이 지나갔다. 벌써 시간이 이렇게 많이 흘렀다는 게 충격적일 정도로 놀랍다.

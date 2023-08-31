@@ -3,8 +3,6 @@ layout: post
 title: "Kotlin에서 Kotlin답게 에러 처리하는 방법 (Advanced Error Handling in Kotlin)"
 categories: [Server development]
 tags: [Kotlin, Error handling, Functional programming, Coroutines, Asynchronous programming, Parellel programming, Kotlin sealed class]
-redirect_from:
-  - /posts/advanced-error-handling-in-kotlin/
 ---
 
 많은 Kotlin 코드들이 Exception(예외)를 통해 에러를 출력하고 핸들링하고 있을지도 모른다. 대부분은 Java-style 코딩 방식에서 그대로 온 것이라고 추측한다. Kotlin은 에러 헨들링을 위해 Exception 외의 인터페이스들도 제시한다.

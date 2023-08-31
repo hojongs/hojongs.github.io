@@ -3,7 +3,6 @@ layout: post
 title: "JPA: optimisstic lock vs pessimistic lock"
 categories: [Server development]
 tags: [Concurrency, Database, JPA, Spring Data, Locking]
-permalink: /posts/optimistic-lock-vs-pessimistic-lock/
 ---
 
 ## What is optimistic locking?

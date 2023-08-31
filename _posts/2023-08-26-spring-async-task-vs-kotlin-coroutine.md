@@ -2,12 +2,12 @@
 layout: post
 title: "Spring Async Task vs Kotlin coroutines"
 categories: [Spring]
-tags: [Spring, Kotlin, Async Task]
+tags: [Spring, Kotlin, Async Task, Kotlin, Coroutine, Elasticsearch, Concurrent Processing, Asynchronous]
 ---
 
 Keyword: Spring Framework, Async Task, Kotlin, Coroutine
 
-특정 서비스에서 여러 개의 Elasticsearch query를 요청하는 API가 있다. 이 API는 query를 순차적으로 요청하고 있었고, query의 개수가 증가하면서 latency가 점점 증가하는 문제가 있었다. 쿼리 성능을 높이기 위해 Elasticsearch 쿼리를 병렬로 수행하도록 변경하였다. **이를 통해 15초~100초 정도 걸리던 API를 p95 10s, p99 12s 수준으로 개선했다.**
+특정 서비스에서 **여러 개의 Elasticsearch query**를 요청하는 API가 있다. 이 API는 query를 순차적으로 요청하고 있었고, query의 개수가 증가하면서 latency가 점점 증가하는 문제가 있었다. 쿼리 성능을 높이기 위해 Elasticsearch 쿼리를 병렬로 수행하도록 변경하였다. **이를 통해 15초~100초 정도 걸리던 API를 p95 10s, p99 12s 수준으로 개선했다.**
 
 병렬 수행을 구현할 때 처음에는 Spring Async Task 기능을 사용했다가 **Kotlin coroutine**으로 변경했다. 이 과정에서 알아본 두 기능의 장단점 비교를 정리했다.
 

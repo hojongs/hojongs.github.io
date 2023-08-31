@@ -85,6 +85,41 @@ Filter는 별도로 언급하지 않았는데, 간단하다. level 등으로 필
 
 <https://github.com/logfellow/logstash-logback-encoder>
 
-여기서는 언급만 하고 자세한 사용법은 다음 포스트에서 다룰 예정이다.
-
 위 라이브러리에서 다양한 Appender, Encoder, Layout들을 제공하는데 이 부분을 보면서 Encoder와 Layout의 차이가 궁금해졌고 그래서 이 포스트로 정리해보았다.
+
+여기서는 간단한 언급만 하고 자세한 사용법은 다음 포스트에서 다룰 예정이다.
+
+위 라이브러리에서 특히 관심있는 기능들은 아래와 같다.
+
+- LogstashLayout (JSON format)
+  <https://github.com/logfellow/logstash-logback-encoder#encoders--layouts>
+- Graceful Shutdown 기능 등을 제공하는 Async Appenders
+  <https://github.com/logfellow/logstash-logback-encoder#async-appenders>
+- Customizing Stack Traces
+  <https://github.com/logfellow/logstash-logback-encoder#customizing-stack-traces>
+
+### Q: Encoder와 Layout 중 어떤 것을 사용해야 할까?
+
+Encoder는 로그를 남기는 매체에 따라 결정된다. 
+
+로그를 파일에 남길 경우 LogstashEncoder를 사용할 수 있다. (README에 나와있듯이)
+
+LogstashEncoder는 아마 OutputStream에 JSON을 그대로 write하는 것 같다. (기본값)
+
+prefix, suffix 등을 통해 쉽게 customize할 수 있다.
+
+하지만 로그를 Kafka로 보낼 경우 Kafka Encoder를 사용해야 한다. 로그를 Slack으로 보낼 수도 있는데, 이 경우에는 Slack encoder를 사용해야 하는 것이다.
+
+> README를 읽어보니, LogstashUdpSocketAppender는 encoder가 아니라 layout을 설정해야 한다. 이는 appender 구현체에 완전히 의존적이다. 확실한 것은 Logback이 0.9.19 버전부터 Layout으로부터 Encoder가 분리되었다는 것이다.
+
+반면 Layout은 로그를 남기는 위치와 독립적이다.
+
+따라서 LogstashEncoder는 로그를 남기는 위치에 따라 적절히 customize하거나 다른 encoder를 사용할 수 있다.
+
+**Encoder와 달리 LogstashLayout는 JSON logging을 위해 필수다.**
+
+본인의 경우 기존에 사용하던 Kafka encoder에 layout만 변경하여 사용할 계획이다.
+
+## Conclusion
+
+Logback 관련 내용들을 간단하게 알아보았다. 다음 Logback 포스트는 Logstash Logback Encoder가 될 예정이다.

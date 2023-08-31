@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[TIL] Gradle: Java(Kotlin) targetCompatibility/sourceCompatibility"
+title: "[TIL] Gradle: Java(Kotlin) targetCompatibility, jvmTarget"
 categories: [Gradle]
 tags: [TIL, Gradle, Java, Kotlin]
 ---

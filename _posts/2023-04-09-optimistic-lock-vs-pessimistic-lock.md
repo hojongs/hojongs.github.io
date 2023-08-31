@@ -97,6 +97,11 @@ JSR-338 Java Persistence 2.2 release specification document
 
 <https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1.html#a2100>
 
+본 내용을 읽다보니 글이 길어질 것 같아, 이후 내용은 별도 포스팅으로 다뤄볼 예정이다!
 
+## Conclusion
 
-=== To be continued ===
+- JPA의 Optimistic locking의 정의에 대해서 다뤄보았다
+- Optimistic locking이 적합한 문제상황에 대해서 다뤄보았다
+- JPA Optimistic locking 관련 레퍼런스 문서들을 찾아보았다
+- Optimistic locking의 2가지 모드의 존재에 대해 알아보았다: OPTIMISTIC vs OPTIMISTIC_FORCE_INCREMENT

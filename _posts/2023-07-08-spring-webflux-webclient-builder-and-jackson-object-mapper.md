@@ -24,6 +24,21 @@ WebClient를 build할 때 `WebClient.builder()`를 직접 호출해서 WebClient
 ## 추가 문제 상황
 
 별도로 설정한 ObjectMapper bean에 JavaTimeModule이 등록되지 않았다. DTO의 LocalDate 필드를 deserialize하지 못하는 문제가 발생했다.
+
+```
+org.springframework.core.codec.CodecException: Type definition error: [simple type, class java.time.LocalDate]; nested exception is com.fasterxml.jackson.databind.exc.InvalidDefinitionException: Java 8 date/time type `java.time.LocalDate` not supported by default: add Module "com.fasterxml.jackson.datatype:jackson-datatype-jsr310" to enable handling
+ at [Source: (org.springframework.core.io.buffer.DefaultDataBuffer$DefaultDataBufferInputStream); line: 1, column: 125] (through reference chain: mypackage.MyDto["myField"])
+	at org.springframework.http.codec.json.AbstractJackson2Decoder.processException(AbstractJackson2Decoder.java:238)
+	Suppressed: The stacktrace has been enhanced by Reactor, refer to additional information below: 
+Error has been observed at the following site(s):
+	*__checkpoint ⇢ Body from UNKNOWN  [DefaultClientResponse]
+	*__checkpoint ⇢ [HeaderFilter]
+Original Stack Trace:
+		at org.springframework.http.codec.json.AbstractJackson2Decoder.processException(AbstractJackson2Decoder.java:238)
+		at org.springframework.http.codec.json.AbstractJackson2Decoder.decode(AbstractJackson2Decoder.java:198)
+		at org.springframework.http.codec.json.AbstractJackson2Decoder.lambda$decodeToMono$1(AbstractJackson2Decoder.java:179)
+```
+
 - Why?: 우선 JavaTimeModule 모듈을 등록해서 해결하긴 했는데, 기존에는 왜 문제가 발생하지 않은걸까?
 - WebClient.builder()를 직접 호출하면 당연히 Spring bean을 사용할 수 없다. 하지만 WebClient는 ObjectMapper가 필요하다. Jackson2JsonDecoder에서 요구하기 때문이다.
 - 따라서 Jackson2JsonDecoder는 내부적으로 default ObjectMapper 인스턴스를 만들어서 사용한다: `Jackson2ObjectMapperBuilder.json().build()`

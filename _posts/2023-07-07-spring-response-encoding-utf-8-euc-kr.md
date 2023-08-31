@@ -79,7 +79,6 @@ fun printIt(string: String) {
 - 전각문자, 기호, 한글, 한자 등을 표현 가능
 - 모든 한글을 표현하지 못함
 - 한글 1글자를 2바이트로 표현 (2바이트 완성형)
-  - [참고](https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=dolicom&logNo=10130052269)
 - ASCII code를 포함하지 않는다 (반각 영문자를 표현할 수 없음)
 
 > [나무위키: 완성형](https://namu.wiki/w/%EC%99%84%EC%84%B1%ED%98%95)
@@ -90,6 +89,7 @@ fun printIt(string: String) {
 > - MSB(가장 좌측 비트)는 항상 1이다
 > - 초성, 중성, 종성을 각 5비트로 변환한다
 > - 1 + 초성 (5 bits) + 중성 (5 bits) + 종성 (5 bits) = 16 bits = 2 bytes
+> - [참고](https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=dolicom&logNo=10130052269)
 
 특정 한글의 KSC5601 인코딩 hex 값이 궁금하다면 이 페이지를 참조: <https://crazybrain.tistory.com/33>
 

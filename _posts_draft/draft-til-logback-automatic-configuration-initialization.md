@@ -12,3 +12,7 @@ tags: [TIL, Logback]
 Spring app이 아닌데 어떻게 logback configuration을 인식한 것일까?
 
 <https://logback.qos.ch/manual/configuration.html#auto_configuration>
+
+
+https://www.baeldung.com/java-spi
+https://docs.oracle.com/javase/6/docs/api/java/util/ServiceLoader.html

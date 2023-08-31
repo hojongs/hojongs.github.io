@@ -86,3 +86,5 @@ Filter는 별도로 언급하지 않았는데, 간단하다. level 등으로 필
 <https://github.com/logfellow/logstash-logback-encoder>
 
 여기서는 언급만 하고 자세한 사용법은 다음 포스트에서 다룰 예정이다.
+
+위 라이브러리에서 다양한 Appender, Encoder, Layout들을 제공하는데 이 부분을 보면서 Encoder와 Layout의 차이가 궁금해졌고 그래서 이 포스트로 정리해보았다.

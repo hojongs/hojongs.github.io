@@ -2,7 +2,7 @@
 layout: post
 title: "Ktlint Gradle 플러그인 비교 (ktlint-gradle vs kotlinter-gradle)"
 categories: [Kotlin]
-tags: [Kotlin, Gradle]
+tags: [Kotlin, Gradle, Ktlint]
 ---
 
 Gradle 프로젝트에서 ktlint를 사용할 때는 보통 gradle plugin을 사용한다. ktlint 플러그인 중 가장 많이 사용하는 플러그인 2개 ktlint-gradle, kotlinter-gradle를 소개하고 비교한다.
@@ -205,3 +205,5 @@ ktlint-gradle과 kotlinter-gradle 둘다 사용할 수 있는 플러그인이다
 spotless라는 대안도 있는 것 같은데, 고려해보진 않았다. 저장소를 봤을 때는 maintenance가 더 잘 되지 않을까하는 기대가 있다.
 
 <https://github.com/diffplug/spotless>
+
+ktlint 관련 글들: <https://hojongs.github.io/tags/ktlint/>

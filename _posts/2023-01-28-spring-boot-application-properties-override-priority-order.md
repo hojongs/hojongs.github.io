@@ -33,7 +33,7 @@ Spring Cloud Config 문서 첫 줄을 보면, `externalized configuration`가 �
 
 <https://docs.spring.io/spring-cloud-config/docs/3.1.5/reference/html/>
 
-Spring Boot 문서를 참고했을 때, Config data files(properties 혹은 yaml 파일들)에 대하여 아래와 같이 언급되어 있다:
+Spring Boot 문서를 참고했을 때, Config data files(properties 혹은 yaml 파일들)에 대하여 아래와 같이 언급되어 있다 (1~14 목록 중에서는 `3. Config data`에 해당한다.):
 
 > Config data files are considered in the following order:
 > 1. Application properties packaged inside your jar (application.properties and YAML variants).
@@ -42,6 +42,8 @@ Spring Boot 문서를 참고했을 때, Config data files(properties 혹은 yaml
 > 4. Profile-specific application properties outside of your packaged jar (application-{profile}.properties and YAML variants).
 
 > resources 디렉토리에 있는 `application-dev.properties`와 같은 파일들은 Profile-specific application properties들이다. resources 디렉토리 안에 있는 properties 파일들은 jar 파일에 함께 package되지만 externalized configuration이라고 부른다. (애초에 모든 configuration들이 externalized 되어있다.)
+>
+> 즉, jar 파일 내부에 있어도 externalized configuration라고 부름.
 
 사례 별로 살펴보면 아래와 같다:
 
@@ -101,3 +103,48 @@ Cloud config에서 import된 properties는 기본적으로 jar 파일 내부에 
 
 - Spring Cloud properties: <https://docs.spring.io/spring-cloud/docs/2021.0.5/reference/html/configprops.html>
 - 그 외 본문 내 링크들
+
+## 내용 추가, Legacy config (Bootstrap way)
+
+### 문제 상황
+
+- `config server`에서 `application-test.properties`를 제공한다. property hojongs=config-server가 있다고 하자.
+  - application-test.properties에 `spring.cloud.config.override-none=true` 또한 정의되어 있다.
+- application(config server를 사용하는)의 `application.properties` 파일에 동일한 property hojongs=client를 정의했다고 하자.
+- 이 때 결과는 두 가지이다.
+  - 기본 방식: server에서 정의한 값이 사용된다. 즉, hojongs=config-server이다. (`spring.cloud.config.override-none=true` 설정은 동작하지 않는다)
+  - Bootstrap way (legacy config): client에서 정의한 값이 사용된다. 즉, hojongs=client이다.
+
+### 설명
+
+- <https://docs.spring.io/spring-cloud-config/docs/current/reference/html/#_using_bootstrap_to_override_properties>
+- <https://docs.spring.io/spring-cloud-config/docs/current/reference/html/#config-first-bootstrap>
+
+> If you enable config first bootstrap, you can allow client applications to override configuration from the config server by placing two properties within the applications configuration coming from the config server.
+
+위 설명대로 `spring.cloud.config.override-none=true` 설정은 bootstrap 방식을 사용할 때만 동작한다.
+
+이 property를 사용하는 코드는 아래에:
+
+<https://github.com/spring-cloud/spring-cloud-commons/blob/a6ac50f0a7034837dd5d75475e21c70af64805fe/spring-cloud-context/src/main/java/org/springframework/cloud/bootstrap/config/PropertySourceBootstrapConfiguration.java#L208C24-L208C38>
+
+---
+
+- <https://docs.spring.io/spring-cloud-config/docs/3.1.5/reference/html/#property-overrides>
+- <https://www.baeldung.com/spring-cloud-config-remote-properties-override>
+
+property overriding 관련해서는 위 문서들을 참고하자.
+
+하지만 하나 의문이 남아있다. 위 문서들에서는 profile을 사용해서 property overriding이 가능하다고 설명하고 있다.
+
+<https://docs.spring.io/spring-boot/docs/2.7.8/reference/htmlsingle/#features.external-config>
+
+Spring boot 문서에 따르면 `Profile-specific application properties packaged inside your jar`는 `(Profile-specific) application properties outside of your packaged jar`에 의해 override 되어야 한다.
+
+하지만 config server의 `application.properties` vs client의 `application-test.properties`는 client의 property가 사용되었다.
+
+반면 config server의 `application-test.properties` vs client의 `application-test.properties`는 문서의 내용대로 config server의 property가 사용되는 것을 확인했다. (test Spring cloud version: 2021.0.7)
+
+### Property overriding by placeholder
+
+더 자세히 분석해보지는 못해서 틀린 내용일 수도 있지만, placeholder를 통한 overriding 방식이 더 직관적이므로 profile을 통한 overriding보다는 placeholder 방식을 더 추천한다.

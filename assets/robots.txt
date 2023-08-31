@@ -11,5 +11,8 @@ Allow: sitemap.xml
 Allow: feed.xml
 Disallow: /norobots/
 Disallow: *.html
+Disallow: /tags
+Disallow: /categories
+Disallow: /page*
 
 Sitemap: {{ '/sitemap.xml' | absolute_url }}

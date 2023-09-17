@@ -54,7 +54,9 @@ HotSpot VM에는 2개의 JIT compile 모드가 있다고 한다: C1, C2. C1은 �
 
 `tiered compilation`은 JVM 시작 시 C1 compiler 모드를 사용한다. 이를 통해 애플리케이션 시작 시간을 줄일 수 있다. 애플리케이션이 적절히 warm-up된 후 C2 compiler 모드로 전환한다. C2 compiler를 통해 더 최적화된 machine code를 생성하고 더 높은 성능을 낼 수 있다. Java SE 8부터는 `tiered compilation`이 기본 설정이다.
 
-**즉, C1 compiler는 최적화보다는 컴파일 속도를 최대화하고 C2 compiler는 컴파일 속도보다는 최적화를 최대화하는 것을 목표로 한다고 이해된다.**
+> **즉, C1 compiler는 최적화보다는 컴파일 속도를 최대화하고 C2 compiler는 컴파일 속도보다는 최적화를 최대화하는 것을 목표로 한다고 이해된다.**
+
+> 적절히 warm-up이라 함의 좀더 구체적인 의미는 C2 compile을 위한 충분한 profiling 정보가 확보됨을 의미하는 것으로 보인다. (하단 reference 2 Baeldung 문서의 3.1 section 참고)
 
 원문에서 이후에는 JIT compile 로그를 통해 String::hashCode() 메소드가 어떤 컴파일러(C1)로 컴파일 되었는지 확인해보는 내용이 서술되어 있다.
 
@@ -73,4 +75,5 @@ HotSpot VM에는 2개의 JIT compile 모드가 있다고 한다: C1, C2. C1은 �
 
 위 내용에는 포함되지 않았지만, 추가로 발견한 관련 포스트들도 공유한다.
 
-<https://forums.oracle.com/ords/apexds/post/jvm-c1-c2-compiler-thread-high-cpu-consumption-8752>
+- <https://forums.oracle.com/ords/apexds/post/jvm-c1-c2-compiler-thread-high-cpu-consumption-8752>
+- 2: <https://www.baeldung.com/jvm-tiered-compilation>

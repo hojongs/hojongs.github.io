@@ -84,8 +84,10 @@ Reference: <https://redis.io/docs/manual/patterns/distributed-locks/>
 - Redisson issue에서 언급한 <https://martin.kleppmann.com/2016/02/08/how-to-do-distributed-locking.html> 문서도 읽어보면 좋을 것 같다.
 - 이 문서에서는 Redlock 알고리즘은 나쁜 선택(poor choice)라고 주장하고 있다.
 - 이 알고리즘은 타이밍과 system clock에 대한 위험한 가정을 하고 있으며 이 가정이 위반되면 안전을 위반하고 있기 때문이다.
-- (정확성보다) 효율성을 위해서라면 single-node locking 알고리즘을 사용하라.
-- 정확성을 위해서라면 Zookeeper와 같은 적절한 consensus system을 사용하라.
+- (정확성보다) 효율성을 위해서라면 single-node locking 알고리즘을 사용하고
+- 정확성을 위해서라면 Zookeeper와 같은 적절한 consensus system을 사용하라고 설명하고 있다.
+
+- 그리고 바로 다음 날, Redis의 original 개발자 [antirez](https://github.com/antirez)는 반박 글을 작성하였다: [Is Redlock safe?](http://antirez.com/news/101)
 
 ## Conclusion
 
@@ -94,4 +96,4 @@ Reference: <https://redis.io/docs/manual/patterns/distributed-locks/>
 - Redlock 알고리즘 동작방식에 대해 정리하였다.
 - Java 구현체들에서 Redlock 관련 이슈들을 살펴보았다. (Lettuce, Redisson, Spring Data Redis)
 - Lettuce를 사용한다면 Redlock은 직접 구현해야 할 것이다.
-- Redlock 알고리즘은 완벽하지 않다. Martin Kleppmann의 비판이 있었고 이를 아주 조금 살펴보았다.
+- Redlock 알고리즘에 대한 논란도 있다. Martin Kleppmann의 비판과 antirez의 반박 글이 있었다.
